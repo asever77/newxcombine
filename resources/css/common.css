@@ -1,0 +1,299 @@
+
+html {font-size: 62.5%;}
+
+/* See https://hankchizljaw.com/wrote/a-modern-css-reset/ */
+/* Box sizing rules */
+*,
+*::before,
+*::after {box-sizing: border-box;}
+
+/* Remove default padding */
+ul[class],
+ol[class] {padding: 0;}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* html5 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+hgroup,
+nav,
+section,
+summary {
+	display: block;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Set core body defaults */
+body {
+    overflow-x: hidden;
+    font-family: 'Base', sans-serif;
+    background-color: #041727;
+    color: #fff;
+    font-size: 1.4rem;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+
+    -webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    word-break: keep-all;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {list-style: none;}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {text-decoration-skip-ink: auto;}
+
+/* Make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs */
+input,
+textarea,
+select {font: inherit;}
+
+select[class],
+textarea[class],
+input[class] {
+	appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select[class]::-ms-expand {display: none;}
+
+/* Inherit fonts for buttons */
+button {
+	padding: 0;
+	border: 0;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+}
+
+/* label */
+label {cursor: pointer;}
+
+/* table */
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption {
+    position: relative !important;
+    width: 1px !important;
+    height: 1px !important;
+    color: transparent !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    margin: -1px 0 0;
+}
+
+th,
+td {border-collapse: collapse;}
+
+.a11y-hidden,
+legend,
+.hidden,
+.hide {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    color: transparent !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ellp {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: normal;
+}
+
+*.disabled,
+*:disabled {
+    pointer-events: none !important;
+    cursor: default !important;
+    opacity: 0.2 !important;
+    box-shadow: none !important;
+}
+
+
+.base-wrap{width: 100%; height: 100%;}
+.base-header{position:fixed; top:0; left:0;}
+.base-main{position: relative; display: flex; width: 100%; height: 100%; flex-direction: column;}
+
+.newxcombine{position: relative; width: 100%; height: 300vh;}
+
+.simbol{position: absolute;  width:50vw; height:50vw; left:50%; transform: translate(-50%, 0) scale(.8) rotate(45deg); z-index: 2;
+animation-delay: 3s;
+animation-name: simbol;
+animation-duration: .3s;
+animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;
+opacity: 0;
+}
+.simbol-item{ position: absolute; width:50vw; height:50vw; transition: all .5s ease-in;}
+.simbol-item > div{width:100%; height: 17%;position: absolute; top:0; display: flex; justify-content: space-between;}
+.simbol-item > div > div{width:38%; height:100%; background-color: #fff; border-radius: 2vw; }
+
+.simbol-item .n1{top:50%; left:0; transform: translate(0, -50%);}
+.simbol-item .n2{top:50%; left:0; transform: translate(0, -50%) rotate(90deg); 
+transform-origin: center center;}
+.simbol-item .n2 > div{background: linear-gradient(to right, rgba(61,168,177,1) 50%, rgba(61,168,177,.3) );}
+.simbol-item .n2 > div + div{background: linear-gradient(to left, rgba(116,121,168,1) 50%, rgba(116,121,168,.3));}
+.simbol-item .n1 > div{background: linear-gradient(to right, rgba(53,173,159,1) 50%, rgba(53,173,159,.3));}
+.simbol-item .n1 > div + div{background: linear-gradient(to left, rgba(58,85,162,1) 50%, rgba(58,85,162,.3));}
+@keyframes simbol {
+    0% {opacity:0; transform: translate(-50%, 0) scale(.7) rotate(95deg);}
+    100% {opacity:1; transform: translate(-50%, 0) scale(.8) rotate(45deg);}
+}
+
+
+
+.vane{position: absolute;  width:80vw;  height:80vw; left:50%; transform: translate(-50%, 0); top:-16vw;
+animation-duration:20s; animation-name: spin; animation-iteration-count: infinite;animation-timing-function:linear;transform-origin:50% 50%;
+transition: all .5s ease-in; opacity: 1;
+}
+.vane:hover{opacity: 0.5;}
+.vane-item{ position: absolute;opacity: 0; width:80vw; height:80vw; transition: all .5s ease-in;}
+.vane-item > div{width:100%; height: 16%;position: absolute; top:0; display: flex; justify-content: space-between;}
+.vane-item > div > div{width:45%; height:100%; background-color: #fff; border-radius: 2vw; }
+.vane-item .n1{top:50%; left:0; transform: translate(0, -50%);}
+.vane-item .n2{top:50%; left:0; transform: translate(0, -50%) rotate(90deg); transform-origin: center center;}
+.vane-item .n2 > div{background: linear-gradient(to right, rgba(4,23,39,0)10%, rgba(61,168,177,.2) 60%, rgba(4,23,39,0) 90%);}
+.vane-item .n2 > div + div{background: linear-gradient(to left, rgba(4,23,39,0)10%,  rgba(116,121,168,.2) 60%, rgba(4,23,39,0) 90%);}
+.vane-item .n1 > div{background: linear-gradient(to right, rgba(4,23,39,0)10%,  rgba(53,173,159,.2) 60%, rgba(4,23,39,0) 90%);}
+.vane-item .n1 > div + div{background: linear-gradient(to left, rgba(4,23,39,0)10%,  rgba(58,85,162,.2) 60%, rgba(4,23,39,0) 90%);}
+
+.vane-item.n1{transform: rotate(15deg); 
+animation-delay: .2s;
+animation-name: vane1;
+animation-duration: .6s;
+animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;
+}
+.vane-item.n2{transform: rotate(30deg); 
+animation-delay: .4s;
+animation-name: vane2;
+animation-duration: .6s;
+animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;
+}
+.vane-item.n3{transform: rotate(45deg); 
+animation-delay: .6s;
+animation-name: vane3;
+animation-duration: .6s;
+animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;
+}
+.vane-item.n4{transform: rotate(60deg); 
+animation-delay: .8s;
+animation-name: vane4;
+animation-duration: .6s;
+animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;
+}
+.vane-item.n5{transform: rotate(75deg); 
+animation-delay: 1s;
+animation-name: vane5;
+animation-duration: .6s;
+animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;
+}
+.vane-item.n6{transform: rotate(90deg); 
+animation-delay: 1.2s;
+animation-name: vane6;
+animation-duration: .6s;
+animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;
+}
+@keyframes spin {
+    0% {transform: translate(-50%, 0) rotate(0deg)}
+    100% {transform: translate(-50%, 0) rotate(360deg)}
+}
+@keyframes vane1 {
+    0% {opacity: 0; transform: rotate(0deg)}
+    100% {opacity: 1; transform: rotate(15deg)}
+}
+@keyframes vane2 {
+    0% {opacity: 0; transform: rotate(15deg)}
+    100% {opacity: 1; transform: rotate(30deg)}
+}
+@keyframes vane3 {
+    0% {opacity: 0; transform: rotate(30deg)}
+    100% {opacity: 1; transform: rotate(45deg)}
+}
+@keyframes vane4 {
+    0% {opacity: 0; transform: rotate(45deg)}
+    100% {opacity: 1; transform: rotate(60deg)}
+}
+@keyframes vane5 {
+    0% {opacity: 0; transform: rotate(60deg)}
+    100% {opacity: 1; transform: rotate(75deg)}
+}
+@keyframes vane6 {
+    0% {opacity: 0; transform: rotate(75deg)}
+    100% {opacity: 1; transform: rotate(90deg)}
+}
+@keyframes vane1 {
+    0% {opacity: 0; transform: rotate(0deg)}
+    100% {opacity: 1; transform: rotate(15deg)}
+}
+
+
+
