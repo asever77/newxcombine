@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Base';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Evermore'), url(../fonts/Evermore-WyDmO.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'Base';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Evermore'), url(../fonts/EvermoreItalic-Eam18.woff) format('woff')
+}
