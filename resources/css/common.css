@@ -30,7 +30,7 @@ html {font-size: 62.5%; overflow-x: hidden;}
 }
 
 @font-face {
-    font-family: 'Base';
+    font-family: 'Evm';
     font-style: italic;
     font-weight: 400;
     src: local('Evermore'), url(../fonts/EvermoreItalic-Eam18.woff) format('woff')
@@ -228,17 +228,18 @@ legend,
 
 
 .base-wrap{width: 100%; height: 100%;}
-.base-header{position:fixed; top:0; left:0; width: 100%; z-index: 1;}
+.bg .base-header{background: rgb(4, 23, 39, .5);backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px);}
+.base-header{position:fixed; top:0; left:0; width: 100%; z-index: 1; padding: 3rem 0; display: flex;}
 .base-main{position: relative; display: flex; width: 100%; height: 100%; flex-direction: column; z-index: 0;}
 
-.base-header h1{position: absolute; top:3.3rem; left:4rem;}
+.base-header h1{position: relative; top:0; left:4rem;}
 .base-header h1 img{max-width: max-content; width: 20vw;}
-.base-header nav{width: 100%; display:flex; justify-content: center; gap:6.5rem; padding-top: 4rem; transition:all .2s ease-in;}
+.base-header nav{width: 100%; display:flex; justify-content: center; gap:10vw; padding-top: 1rem; transition:all .2s ease-in;}
 .base-header nav a{font-size: 1.3rem; color:#fff; text-decoration: none;  font-family: 'Evm'}
 
 .ft-evm{ font-family: 'Evm';}
 
-.newxcombine{position: relative; width: 100%; height: 100vh;}
+.newxcombine{position: relative; width: 100%; min-height: 124rem;}
 
 .simbol{position: absolute;  width:50vw; height:50vw; left:50%; transform: translate(-50%, 0) scale(.8) rotate(45deg); z-index: 2;
 animation-delay: 2.4s;
@@ -399,15 +400,82 @@ animation-iteration-count: 1;animation-timing-function:ease-out; animation-fill-
     100% {opacity: .6; transform: rotate(90deg)}
 }
 
-.service{width: 100%; height: 100vh;}
-.service .tit{padding-left: 10vw;}
+.service{width: 100%; min-height: 124rem;}
+.service .tit{padding: 0 10vw;}
 .service .tit h2{font-size: 4vw; font-family: 'Evm'; letter-spacing: .4rem; margin-bottom: 1.6vw;}
 .service .tit h2 span{color: #39b9a8;}
-.card-item{width:36vw; height: 55vw; background-color: #000; border-radius: 3vw;} 
+.service .card-list{display: flex; width:100%;  justify-content: center; margin-top: 6vw; padding: 0 2%;}
+.service .card-list li {position: relative; width: 20%; transition: all .2s ease-in; cursor: pointer;}
+.service .card-item{width:20vw; height: 30vw; background-color: #000; border-radius: 3vw; max-width:59.5rem; max-height: 92.3rem; position: absolute; left:50%; transform: translate(-50%, 0) rotate(25deg) scale(.8); padding: 3vw; overflow: hidden;
+animation-name: zoomOut;
+animation-duration: .2s;
+animation-iteration-count: 1;
+animation-timing-function:ease-out; 
+animation-fill-mode:forwards;} 
+.service .card-item.c1{top:0; background:linear-gradient(#0f3741, #0f3741);}
+.service .card-item.c2{top:0; background:linear-gradient(#113846, #113846);}
+.service .card-item.c3{top:0; background:linear-gradient(#1f2e46, #1f2e46);}
+.service .card-item.c4{top:0; background:linear-gradient(#0f2440, #0f2440);}
+.service .card-item > *{display: block; }
+.service .card-item em{font-family: 'Evm'; font-size: 1vw; font-style: normal; margin-top: 4vw; margin-bottom: .6vw;}
+.service .card-item strong{font-size: 3vw; font-weight: 700; opacity: .6;}
+.service .card-item p{font-size: 1.4vw; font-weight: 200; margin-top: -.4vw;}
+.service .card-item p + p{font-size: 1vw; font-weight: 200;color:#999 !important; margin-top: 1.2vw;}
+.service .card-item img{display: block; position: absolute; opacity:0;bottom:-10vw; right:2vw;transition: all .14s ease-in;}
+.service .card-item.c1 img,
+.service .card-item.c2 img,
+.service .card-item.c3 img,
+.service .card-item.c4 img{width:12vw;}
+
+.service .hover .card-item.c1{background:linear-gradient(#14e1c7, #116e98);}
+.service .hover .card-item.c2{background:linear-gradient(#46bdc4, #8c8bc2);}
+.service .hover .card-item.c3{background:linear-gradient(#8b8bc2, #3c57a6);}
+.service .hover .card-item.c4{background:linear-gradient(#3b57a6, #8c8bc2);}
+.service .hover .card-item{padding: 2vw;}
+.service .hover .card-item em{font-size: 1vw; color: #fff !important;margin-top: 1vw;}
+.service .hover .card-item strong{font-size: 3vw; color: #fff; opacity: 1;}
+.service .hover .card-item p{font-size: 1.4vw; color: #fff !important;}
+.service .hover .card-item p + p{font-size: 1vw; color: #fff !important;}
+.service .hover .card-item img{opacity:1; }
+.service .hover .card-item.c1 img{bottom:2vw; right:2vw;}
+.service .hover .card-item.c2 img{bottom:2vw; right:3.4vw;}
+.service .hover .card-item.c3 img{bottom:2vw; right:-2vw;}
+.service .hover .card-item.c4 img{bottom:2vw; right:2vw;}
+.service .card-list li.hover .card-item{
+animation-name: zoomIn;
+animation-duration: .4s;
+animation-iteration-count: 1;
+animation-timing-function:ease-out; 
+animation-fill-mode:forwards;
+}
+.service .card-list li.hover {width: 30%; z-index: 1;}
+
+.service .card-item.c1 em,
+.service .card-item.c1 p{color:#39b9a8;}
+.service .card-item.c2 em,
+.service .card-item.c2 p{color:#45bdc4;}
+.service .card-item.c3 em,
+.service .card-item.c3 p{color:#626690;}
+.service .card-item.c4 em,
+.service .card-item.c4 p{color:#3b57a6;}
+
+
+
+@keyframes zoomIn {
+    0% {transform: translate(-50%, 0) rotate(25deg) scale(.8);}
+    100% {transform: translate(-50%, 0) rotate(0) scale(1);}
+}
+@keyframes zoomOut {
+    0% {transform: translate(-50%, 0) rotate(0) scale(1);}
+    100% {transform: translate(-50%, 0) rotate(25deg) scale(.8);}
+}
+
 
 @media (max-width: 1400px) {
     .base-header h1 img {width: 30vw;}
     .base-header nav{justify-content: flex-end; padding-right: 4vw;}
+    .newxcombine{min-height: 92rem;}
+    .service{min-height: 92rem;}
 }
 
 @media (max-width: 900px) {
@@ -421,6 +489,9 @@ animation-iteration-count: 1;animation-timing-function:ease-out; animation-fill-
         justify-content: flex-end;
     }
     .base-header nav a{font-size:2vw; white-space: nowrap;}
+    .newxcombine{min-height: 100vh;}
+    .service{min-height: 100vh;}
+
     .newxcombine .txt{
         top:50%;
         transform: translate(0,-50%);
@@ -448,5 +519,38 @@ animation-iteration-count: 1;animation-timing-function:ease-out; animation-fill-
     @keyframes simbol {
         0% {opacity:0; transform: translate(-50%, -50%) scale(.7) rotate(95deg);}
         100% {opacity:1; transform: translate(-50%, -50%) scale(.8) rotate(45deg);}
+    }
+    /* .service .card-list.on{position: relative;}
+    .service .card-list.on li{position: static;} */
+    .service .card-list{flex-wrap: wrap; margin-top: 15vw; padding: 0 10vw;}
+    .service .card-list li{width: 50%; height: 50vw;}
+    .service .card-list li.hover{width: 50%;}
+    .service .card-item{transform: translate(-50%, 0) rotate(25deg) scale(1);max-height:none; max-width:none; width: 30vw;
+    height:40vw;}
+    .service .hover .card-item{padding: 3vw; transform-origin: 50% 50%;}
+    .service .hover .card-item em{font-size: 1.5vw; color: #fff !important;margin-top: 1vw;}
+    .service .hover .card-item strong{font-size:3.5vw; color: #fff; opacity: 1;}
+    .service .hover .card-item p{font-size: 1.8vw; color: #fff !important; font-weight: 400;}
+    .service .hover .card-item p + p{font-size: 1.6vw; color: #fff !important; font-weight: 400;}
+    .service .card-item.c1 img,
+    .service .card-item.c2 img,
+    .service .card-item.c3 img,
+    .service .card-item.c4 img{width:17vw;}
+    .service .card-list.on .hover .card-item.c1{top:0; left:100%; transition: all .2s ease-in;}
+    .service .card-list.on .hover .card-item.c2{top:0; left:0%; transition: all .2s ease-in;}
+    .service .card-list.on .hover .card-item.c3{top:-50vw; left:100%; transition: all .2s ease-in;}
+    .service .card-list.on .hover .card-item.c4{top:-50vw; left:0%; transition: all .2s ease-in;}
+    .service .hover .card-item.c1 img{bottom:3vw; right:2vw;}
+    .service .hover .card-item.c2 img{bottom:3vw; right:6.4vw;}
+    .service .hover .card-item.c3 img{bottom:3vw; right:-2vw;}
+    .service .hover .card-item.c4 img{bottom:3vw; right:2vw;}
+
+    @keyframes zoomIn {
+        0% {transform: translate(-50%, 0) rotate(25deg) scale(1);}
+        100% {transform: translate(-50%, 50%) rotate(0) scale(2.4);}
+    }
+    @keyframes zoomOut {
+        0% {transform: translate(-50%, 50%) rotate(0) scale(2.4);}
+        100% {transform: translate(-50%, 0) rotate(25deg) scale(1);}
     }
 }

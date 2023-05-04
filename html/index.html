@@ -20,7 +20,7 @@
             </nav>
         </header>
         <main class="base-main">
-            <section class="newxcombine">
+            <section class="newxcombine" data-parallax="1">
                 <div class="vane">
                     <div class="vane-item n1">
                         <div class="n1"><div></div><div></div></div>
@@ -65,7 +65,8 @@
                     </div>
                 </div>
             </section>
-            <section class="service">
+
+            <section class="service" data-parallax="2">
                 <div class="tit">
                     <h2>
                         new<span>x</span><br>
@@ -76,15 +77,91 @@
                         현재, 건설분양 판매홍보, 분양 비즈니즈 플랫폼, 부동산 데이터 통합 서비스, 크립토 퀀트투자 분야의 솔루션과 플랫폼을 운영/개발 중입니다.
                     </p>
                 </div>
-                <div class="card-list">
-                    <div class="card-item">
-                        <em>steady</em>
-                    </div>
+                <ul class="card-list">
+                    <li tabindex="0">
+                        <div class="card-item c1">
+                            <em>pink whale</em>
+                            <strong>분홍고래</strong>
+                            <p>분양 홍보의 No.1</p>
+                            <p>온/오프라인 토탈 분양홍보 솔루션</p>
+                            <img src="../resources/img/card1.png" alt="">
+                        </div>
+                    </li>
+                    <li tabindex="0">
+                        <div class="card-item c2">
+                            <em>re catch</em>
+                            <strong>분양캐치</strong>
+                            <p>분양 판매/구인의 모든것</p>
+                            <p>분양 비즈니스 플랫폼</p>
+                            <img src="../resources/img/card2.png" alt="">
+                        </div>
+                    </li>
+                    <li tabindex="0">
+                        <div class="card-item c3">
+                            <em>legwork zero</em>
+                            <strong>발품제로 </strong>
+                            <p>부동산 서비스를 하나로</p>
+                            <p>부동산 데이터 통합 서비스</p>
+                            <img src="../resources/img/card3.png" alt="">
+                        </div>
+                    </li>
+                    <li tabindex="0">
+                        <div class="card-item c4">
+                            <em>steady</em>
+                            <strong>스태디</strong>
+                            <p>크립토 AI자동차 투자</p>
+                            <p>크립토 퀀트 투자</p>
+                            <img src="../resources/img/card4.png" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="service1" data-parallax="4">
+                <div class="card-item c1">
+                    <em>pink whale</em>
+                    <strong>분홍고래</strong>
+                    <p>분양 홍보의 No.1</p>
+                    <p>온/오프라인 토탈 분양홍보 솔루션</p>
+                    <img src="../resources/img/card1.png" alt="">
                 </div>
-              
+            </section>
+
+            <section class="" data-parallax="5">
+
             </section>
         </main>
 
     </div>
+
+    <script src="../resources/js/common.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            uiNXC.scroll.init();
+
+            const cards = document.querySelectorAll('.card-list > li');
+           
+
+            const cardAct = (event) => {
+                const _this = event.currentTarget;
+                const wrap = _this.closest('.card-list');
+                const cardHover = document.querySelector('.card-list > li.hover');
+
+                if (_this.classList.contains('hover')) {
+                    wrap.classList.remove('on');
+                    _this.classList.remove('hover');
+                } else {
+                    wrap.classList.add('on');
+                    cardHover && cardHover.classList.remove('hover');
+                    _this.classList.add('hover');
+
+                }
+            }
+            for (let card of cards) {
+                card.addEventListener('click', cardAct);
+            }
+           document.addEventListener("touchstart", function() {}, true);
+        });
+  </script>
 </body>
 </html>
