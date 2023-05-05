@@ -180,13 +180,13 @@
         document.addEventListener("DOMContentLoaded", () => {
             uiNXC.parallax.init();
             uiNXC.callback.product1 = (v) => {
-                (Number(v.start) > 50) && v.el.classList.add('act');
+                (Number(v.start) > 70) && v.el.classList.add('act');
             }
             uiNXC.callback.product2 = (v) => {
-                (Number(v.start) > 50) && v.el.classList.add('act');
+                (Number(v.start) > 70) && v.el.classList.add('act');
             }
             uiNXC.callback.product3 = (v) => {
-                (Number(v.start) > 50) && v.el.classList.add('act');
+                (Number(v.start) > 70) && v.el.classList.add('act');
             }
            
             const cards = document.querySelectorAll('.card-list > li');
