@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resources/css/common.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <title>new x combine</title>
 </head>
 <body>
     <div class="base-wrap">
@@ -117,13 +119,19 @@
                 </ul>
             </section>
 
-            <section class="service1" data-parallax="4">
-                <div class="card-item c1">
+            <section class="product p1" data-parallax="4">
+                <div class="txt">
                     <em>pink whale</em>
                     <strong>분홍고래</strong>
                     <p>분양 홍보의 No.1</p>
                     <p>온/오프라인 토탈 분양홍보 솔루션</p>
                     <img src="../resources/img/card1.png" alt="">
+                </div>
+                <div class="img">
+                    <div class="wrap">
+                        <div class="card"></div>
+                        <
+                    </div>
                 </div>
             </section>
 
@@ -138,7 +146,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             uiNXC.scroll.init();
-
+console.log( uiNXC.state.device.mobile)
             const cards = document.querySelectorAll('.card-list > li');
            
 
@@ -154,13 +162,35 @@
                     wrap.classList.add('on');
                     cardHover && cardHover.classList.remove('hover');
                     _this.classList.add('hover');
-
                 }
             }
-            for (let card of cards) {
-                card.addEventListener('click', cardAct);
+            const cardIn = (event) => {
+                event.preventDefault();
+                const _this = event.currentTarget;
+                const wrap = _this.closest('.card-list');
+                const cardHover = document.querySelector('.card-list > li.hover');
+
+                wrap.classList.add('on');
+                cardHover && cardHover.classList.remove('hover');
+                _this.classList.add('hover');
             }
-           document.addEventListener("touchstart", function() {}, true);
+            const cardOut = (event) => {
+                event.preventDefault();
+                const _this = event.currentTarget;
+                const wrap = _this.closest('.card-list');
+                const cardHover = document.querySelector('.card-list > li.hover');
+
+                wrap.classList.remove('on');
+                _this.classList.remove('hover');
+            }
+            for (let card of cards) {
+                card.addEventListener('click', cardAct);                    
+                // card.addEventListener('mouseover', cardIn);
+                // card.addEventListener('mouseleave', cardOut);
+            }
+
+          
+            // document.addEventListener("touchstart", function() {}, true);
         });
   </script>
 </body>
