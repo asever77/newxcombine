@@ -239,7 +239,7 @@ legend,
 
 .ft-evm{ font-family: 'Evm';}
 
-.newxcombine{position: relative; width: 100%; height: 100vmax;}
+.newxcombine{position: relative; width: 100%; height: 100vmax; outline: 1px solid #fff;}
 .simbol{position: absolute;  width:50vmax; height:50vmax; left:50%; top:8vmax; transform: translate(-50%, 0) scale(.8) rotate(45deg); z-index: 2;animation-delay: 2.4s;animation-name: simbol;animation-duration: .3s;animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;opacity: 0;}
 .simbol-item{ position: absolute; width:50vmax; height:50vmax; transition: all .5s ease-in;}
 .simbol-item > div{width:100%; height: 17%;position: absolute; top:0; display: flex; justify-content: space-between;}
@@ -330,7 +330,10 @@ animation-delay: 5s;animation-name: txt3;animation-duration: .4s;animation-itera
     100% {opacity: .6; transform: rotate(90deg)}
 }
 
-.service{width: 100%; min-height: 124rem;}
+.service{width: 100%; height: 100vmax; outline: 1px solid #fff;    
+display: flex;
+flex-direction: column;
+justify-content: center;}
 .service .tit{padding: 0 10vw;}
 .service .tit h2{font-size: 4vw; font-family: 'Evm'; letter-spacing: .4rem; margin-bottom: 1.6vw;}
 .service .tit h2 span{color: #39b9a8;}
@@ -393,6 +396,81 @@ animation-delay: 5s;animation-name: txt3;animation-duration: .4s;animation-itera
     100% {transform: translate(-50%, 0) rotate(25deg) scale(.8);}
 }
 
+
+.product{width: 100%; height: 100vmax; position: relative; outline: 1px solid #fff;}
+.product .info > *{display: block;}
+.product .info{position: absolute; top:30vmax; left:60%;opacity:0; }
+.product .info em{font-family: 'Evm'; font-size: 2vmin; font-style: normal;}
+.product .info h3{font-size: 7vmin; font-weight: 700;}
+.product .info b{font-size: 3vmin; font-weight: 400; margin-top:2vmin;}
+.product .info p{font-size: 2vmin; font-weight: 200; color: #999; margin-top:4vmin; width: 39vmin;}
+.product .info a{font-size: 1.8vmin; padding:1vmin 2vmin 1vmin 2vmin; border:.1rem solid rgba(255,255,255,0.3); color:#fff; text-decoration: none;  border-radius: .8vmin; margin-top:4vmin; position: relative; display: inline-flex; justify-content: space-between; align-items: center; gap:1.4rem}
+.product .info a::after{content:""; display: block; width: .8vmin;height: .8vmin; border:.1rem solid #999; border-top:0; border-left:0; transform: rotate(-45deg); }
+
+.product.p1.act .info{animation-name: show2; animation-delay: .4s; animation-duration: .4s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(0.68, -0.55, 0.265, 1.55); animation-fill-mode:forwards}
+.product.p1.act .img{animation-name: show1; animation-delay: 0;animation-duration: .4s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(0.68, -0.55, 0.265, 1.55); animation-fill-mode:forwards}
+.product.p1.act .img img{width:34vw; position: absolute; top:33%; left:-42%; transform: rotate(265deg); transform-origin: 100% 100%;
+animation-delay: .7s;animation-name: aniP1;animation-duration: .9s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(1,.16,0,1.03); animation-fill-mode:forwards}
+
+.product.p1 .img{position: absolute; width:44vw; height:40vw; top:22vmax; right:41%; overflow: hidden; transform:translate(0,-80%) rotate(-45deg); opacity: 0;}
+.product.p1 .card{ width:24vw; height:40vw; background:linear-gradient(#14e1c7, #116e98); border-radius: 3rem;}
+.product.p1 .img img{width:34vw; position: absolute; top:33%; left:-42%; transform: rotate(265deg); transform-origin: 100% 100%;}
+.product.p1 .info em{color: #38b7a6;}
+.product.p1 .info b{color: #38b7a6;}
+
+
+.product.p2.act .info{left:auto; right:60%;
+animation-name: show2; animation-delay: .4s; animation-duration: .4s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(0.68, -0.55, 0.265, 1.55); animation-fill-mode:forwards}
+.product.p2.act .img{right:auto; left:50%;
+animation-name: show1b; animation-delay: 0;animation-duration: .4s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(0.68, -0.55, 0.265, 1.55); animation-fill-mode:forwards}
+.product.p2.act .img img{
+animation-delay: .7s;animation-name: aniP2; animation-duration: 4s;animation-iteration-count:infinite; animation-timing-function:linear;}
+
+.product.p2 .img{position: absolute; width:44vw; height:40vw; top:35vmax; right:41%; overflow: visible; transform:translate(0,-80%) rotate(-45deg); opacity: 0;}
+.product.p2 .card{ width:24vw; height:40vw; background:linear-gradient(#45bdc4, #8b8cc2); border-radius: 3rem;}
+.product.p2 .img img{width:36vw; position: absolute; top:23%; left:-18%; opacity: 1;transform: translate(0,0) rotate(-45deg); }
+.product.p2 .info em{color: #45bdc4;}
+.product.p2 .info b{color: #45bdc4;}
+@keyframes aniP2 {
+    0% {transform: translate(0,0) rotate(-45deg); opacity: 1;}
+    13% {transform: translate(-.2vw, -.2vw) rotate(-45deg); opacity: 1;}
+    46% {transform: translate(0,0) rotate(-45deg); opacity: 1;}
+    79% {transform: translate(-.5vw, -.5vw) rotate(-45deg); opacity: 1;}
+    100% {transform: translate(0,0) rotate(-45deg);opacity: 1;}
+}
+
+.product.p3.act .info{animation-name: show2; animation-delay: .4s; animation-duration: .4s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(0.68, -0.55, 0.265, 1.55); animation-fill-mode:forwards}
+.product.p3.act .img{animation-name: show1; animation-delay: 0;animation-duration: .4s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(0.68, -0.55, 0.265, 1.55); animation-fill-mode:forwards}
+.product.p3.act .img img{width:34vw; position: absolute; top:33%; left:-42%; transform: rotate(265deg); transform-origin: 100% 100%;
+animation-delay: .7s;animation-name: aniP3;animation-duration: .9s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(1,.16,0,1.03); animation-fill-mode:forwards}
+
+.product.p3 .img{position: absolute; width:44vw; height:40vw; top:22vmax; right:41%; overflow: hidden; transform:translate(0,-80%) rotate(-45deg); opacity: 0;}
+.product.p3 .card{ width:24vw; height:40vw; background:linear-gradient(#8b8bc2, #3c57a6); border-radius: 3rem;}
+.product.p3 .img img{width:34vw; position: absolute; top:33%; left:-42%; transform: rotate(265deg); transform-origin: 100% 100%;}
+.product.p3 .info em{color: #8c8bc2;}
+.product.p3 .info b{color: #8c8bc2;}
+
+@keyframes aniP1 {
+    0% {transform: rotate(265deg);}
+    100% {transform: rotate(405deg);}
+}
+
+@keyframes aniP3 {
+    0% {transform: rotate(265deg);}
+    100% {transform: rotate(405deg);}
+}
+@keyframes show1 {
+    0% {transform:translate(0,-80%) rotate(-45deg); opacity: 0;}
+    100% {transform:translate(0,-10%) rotate(-45deg); opacity: 1;}
+}
+@keyframes show1b {
+    0% {transform:translate(0,-80%) rotate(45deg); opacity: 0;}
+    100% {transform:translate(0,-10%) rotate(45deg); opacity: 1;}
+}
+@keyframes show2 {
+    0% {transform:translate(0,-80%) ; opacity: 0;}
+    100% {transform:translate(0,-10%) ; opacity: 1;}
+}
 
 @media (max-width: 1400px) {
     .base-header h1 img {width: 30vw;}

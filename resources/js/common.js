@@ -8,7 +8,7 @@ const Global = window[global];
 const UA = navigator.userAgent.toLowerCase();
 const deviceSize = [1920, 1600, 1440, 1280, 1024, 960, 840, 720, 600, 480, 400, 360];
 const deviceInfo = ['android', 'iphone', 'ipod', 'ipad', 'blackberry', 'windows ce', 'windows','samsung', 'lg', 'mot', 'sonyericsson', 'nokia', 'opeara mini', 'opera mobi', 'webos', 'iemobile', 'kfapwi', 'rim', 'bb10'];
-
+Global.callback = {}
 Global.state = {
 	device: {
 		info: (() => {
@@ -107,58 +107,222 @@ Global.state = {
 	}
 }
 Global.state.resizeState();
-Global.scroll = {
-	y : 0,
-	direction : 'down',
-	init() {
+Global.parallax = {
+	optionsParllax: {
+		selector : null,
+		area : null
+	},
+	init(option) {
+		const opt = Object.assign({}, this.optionsParllax, option);
+		//const opt = {...this.optionsParllax, ...option};
+		const el_area = (opt.area === undefined || opt.area === null) ? window : opt.area;
+		//Nullish coalescing operator
+		//const el_area = opt.area ?? window;
+		const el_parallax = (opt.selector === undefined || opt.selector === null) ? document.querySelector('.ui-parallax') : opt.selector;
+		//const el_parallax = opt.selector ?? document.querySelector('.ui-parallax');
+
+		//:scope >
+		const el_wraps = el_parallax.querySelectorAll('.ui-parallax-wrap');
+		const act = () => {
+			const isWin = el_area === window;
+			const areaH = isWin ? window.innerHeight : el_area.offsetHeight;
+
+			for (let i = 0, len = el_wraps.length; i < len; i++) {
+				const that = el_wraps[i];
+				const callbackname = that.dataset.act;
+				const h = Math.floor(that.offsetHeight);
+
+				let start = Math.floor(that.getBoundingClientRect().top) - areaH;
+				let _n = 0;
+				let _per_s = 0;
+				let _per_e = 0;
+
+				if (start < 0 )  {
+					_n = Math.abs(start);
+					_per_s = Math.round(_n / areaH * 100);
+					_per_s = _per_s >= 100 ? 100 : _per_s;
+				} else {
+					_n = 0;
+					_per_s = 0;
+				}
+
+				if (start + areaH < 0 )  {
+					_n = Math.abs(start + areaH);
+					_per_e = Math.round(_n / h  * 100);
+					_per_e = _per_e >= 100 ? 100 : _per_e;
+				} else {
+					_n = 0;
+					_per_e = 0;
+				}
+
+				that.setAttribute('data-parallax-s', _per_s);
+				that.setAttribute('data-parallax-e', _per_e);
+
+				if (!!Global.callback[callbackname]) {
+					Global.callback[callbackname]({
+						el: that, 
+						px: _n,
+						start: _per_s,
+						end: _per_e
+					});
+				}
+			} 
+		}
+		
+		act();
+		el_area.addEventListener('scroll', act);
+	}
+}
+Global.scrollEvent = {
+	y: 0,
+	direction: 'down',
+	scrollScope: {},
+	isScope: false,
+	init(opt) {
 		let last_know_scroll_position = 0;
 		let ticking = false;
 
-		const doSomething = (scroll_pos) => {
-			this.direction = this.y > scroll_pos ? 'up' : this.y < scroll_pos ? 'down' : ''; 
-			this.y = scroll_pos;
-			this.check();
+		this.isScope = !!opt && !!opt.scope;
+		this.scrollScope = this.isScope ? opt.scope : window;
 
-            console.log(scroll_pos);
-
-            scroll_pos > 20 ? document.querySelector('body').classList.add('bg') : document.querySelector('body').classList.remove('bg');
-
-			document.querySelector('body').dataset.dir = this.direction;
+		const options = {
+			root: null, 
+			rootMargin: '0px', 
+			threshold: [0.5]
 		}
-		window.addEventListener('scroll', (e) => {
-			last_know_scroll_position = window.scrollY;
+		let nowY = null;
+		const io = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				const bcr = entry.boundingClientRect;
+				const bcrTop = entry.boundingClientRect.top;
+				const scrTop = document.documentElement.scrollTop;
+				const target = entry.target;
+				const ratio = entry.intersectionRatio;
+				const state = entry.isIntersecting;
+				const isUp = nowY === null ? false : nowY < bcrTop ? true : false;
+				const isOverflow = bcr.height >= entry.rootBounds.height ? true : false;
+				const isHalfGone = ((scrTop - bcrTop) < (bcrTop + scrTop));
 
-			if (!ticking) {
-				window.requestAnimationFrame(() => {
-					doSomething(last_know_scroll_position);
-					ticking = false;
-				});
+				nowY = bcrTop;
 
-				ticking = true;
-			}
-		});
-		setTimeout(() => {
-			this.check();
-		}, 400);
-		
-	},
-	check() {
+
+				if (isOverflow) {
+					if (!isUp) {
+						if (isHalfGone && ratio >= 0.5 && ratio < 1) {
+							target.classList.add('ui-s2');
+							target.dataset.state = 's2';
+						}
+						else if (isHalfGone && ratio > 0 && ratio < 0.5) {
+							target.classList.add('ui-s1');
+							target.dataset.state = 's1';
+						} 
+						else if (!isHalfGone && ratio <= 0) {
+							target.classList.add('ui-s4');
+							target.dataset.state = 's4';
+						}
+						else if (!isHalfGone && ratio < 0.5) {
+							target.classList.add('ui-s3');
+							target.dataset.state = 's3';
+						}
+					} 
+					else {
+						if (ratio <= 0 && isHalfGone) {
+							target.classList.remove('ui-s1');
+							target.dataset.state = 's0';
+						} 
+						else if (ratio <= 0.5 && isHalfGone) {
+							target.classList.remove('ui-s2');
+							target.dataset.state = 's1';
+						} 
+						else if (ratio < 1 && ratio > 0.5 && !isHalfGone) {
+							target.classList.remove('ui-s3');
+							target.dataset.state = 's2';
+						} 
+						else if (ratio < 0.5 && ratio >= 0 && !isHalfGone) {
+							target.classList.remove('ui-s4');
+							target.dataset.state = 's3';
+						}
+						
+					}
+				} else {
+					if (!isUp) {
+						if (isHalfGone && ratio >= 0.5 && ratio < 1) {
+							target.classList.add('ui-s2');
+							target.dataset.state = 's2';
+						}
+						else if (isHalfGone && ratio > 0 && ratio < 0.5) {
+							target.classList.add('ui-s1');
+							target.dataset.state = 's1';
+						} 
+						else if (!isHalfGone && ratio <= 0) {
+							target.classList.add('ui-s6');
+							target.dataset.state = 's6';
+						}
+						else if (!isHalfGone && ratio < 0.5) {
+							target.classList.add('ui-s5');
+							target.dataset.state = 's5';
+						}
+						else if (!isHalfGone && ratio <= 1) {
+							target.classList.add('ui-s4');
+							target.dataset.state = 's4';
+						}
+						else if (isHalfGone && ratio >= 1) {
+							target.classList.add('ui-s3');
+							target.dataset.state = 's3';
+						}
+					} 
+					else {
+						if (ratio <= 0 && isHalfGone) {
+							target.classList.remove('ui-s1');
+							target.dataset.state = 's0';
+						} 
+						else if (ratio <= 0.5 && isHalfGone) {
+							target.classList.remove('ui-s2');
+							target.dataset.state = 's1';
+						} 
+						else if (ratio < 0.7 && ratio > 0.5 && !isHalfGone) {
+							target.classList.remove('ui-s5');
+							target.dataset.state = 's4';
+						} 
+						else if (ratio < 0.2 && ratio >= 0 && !isHalfGone) {
+							target.classList.remove('ui-s6');
+							target.dataset.state = 's5';
+						}
+						else if (ratio >= 1 && isHalfGone) {
+							target.classList.remove('ui-s4');
+							target.dataset.state = 's3';
+						}
+						else if (ratio <= 1 && isHalfGone) {
+							target.classList.remove('ui-s3');
+							target.dataset.state = 's2';
+						}
+					}
+				}
+				
+			});
+		}, options);
+
 		const items = document.querySelectorAll('[data-parallax]');
-		for (let item of items) {
-			const item_t = item.getBoundingClientRect().top;
-			const item_h = item.offsetHeight;
-			const win_h = window.innerHeight;
-			const scroll_t = document.documentElement.scrollTop;
 
-			if (win_h > item_t && win_h + (win_h / 10) > item_t+item_h) {
-					item.classList.add('parallax-s-0');
-					item.classList.add('parallax-e-0');
-			} else {
-				((item_t+scroll_t-win_h) < scroll_t) ? item.classList.add('parallax-s-0') : item.classList.remove('parallax-s-0');
-				((item_t+scroll_t) < scroll_t) ? item.classList.add('parallax-s-1') : item.classList.remove('parallax-s-1');
-				((item_t+scroll_t-win_h+item_h) < scroll_t) ? item.classList.add('parallax-e-0') : item.classList.remove('parallax-e-0');
-				((item_t+scroll_t+item_h) < scroll_t) ? item.classList.add('parallax-e-1') : item.classList.remove('parallax-e-1');
-			}
+		for (let item of items) {
+			io.observe(item);
+		}
+},
+check() {
+		const items = document.querySelectorAll('[data-parallax]');
+
+		for (let item of items) {
+				const item_t = item.getBoundingClientRect().top;
+				const item_h = item.offsetHeight;
+				const win_h = window.innerHeight;
+				const scroll_t = this.isScope ? this.scrollScope.scrollTop : document.documentElement.scrollTop;
+
+				((item_t + scroll_t - win_h) < scroll_t) ? item.classList.add('parallax-s-0') : item.classList.remove('parallax-s-0');
+				((item_t + scroll_t) < scroll_t) ? item.classList.add('parallax-s-1') : item.classList.remove('parallax-s-1');
+				((item_t + scroll_t - win_h + item_h) < scroll_t) ? item.classList.add('parallax-e-0') : item.classList.remove('parallax-e-0');
+				((item_t + scroll_t + item_h) < scroll_t) ? item.classList.add('parallax-e-1') : item.classList.remove('parallax-e-1');
+				((item_t + scroll_t - (win_h / 2)) < scroll_t) ? item.classList.add('parallax-m-0') : item.classList.remove('parallax-m-0');
+				((item_t + scroll_t + (item_h / 2)) < scroll_t) ? item.classList.add('parallax-m-1') : item.classList.remove('parallax-m-1');
 		}
 	}
 }
