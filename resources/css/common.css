@@ -412,6 +412,7 @@ justify-content: center;}
 .product.p1.act .img img{width:34vw; position: absolute; top:33%; left:-42%; transform: rotate(265deg); transform-origin: 100% 100%;
 animation-delay: .7s;animation-name: aniP1;animation-duration: .9s;animation-iteration-count: 1;animation-timing-function:cubic-bezier(1,.16,0,1.03); animation-fill-mode:forwards}
 
+.product.p1 .img .wrap{width: 100%; height: 100%; position: relative; overflow: hidden;}
 .product.p1 .img{position: absolute; width:44vw; height:40vw; top:13%; right:41%; overflow: hidden; transform:translate(0,-80%) rotate(-45deg); opacity: 0;}
 .product.p1 .card{ width:24vw; height:40vw; background:linear-gradient(#14e1c7, #116e98); border-radius: 3rem;}
 .product.p1 .img img{width:34vw; position: absolute; top:33%; left:-42%; transform: rotate(265deg); transform-origin: 100% 100%;}
@@ -507,6 +508,7 @@ animation-delay: .7s;animation-name: aniP3;animation-duration: .9s;animation-ite
     .newxcombine .txt2{left:auto; right:0; top:11vmax}
     .simbol{width: 100vw; height: 100vw; top:50%; transform: translate(-50%, -50%) scale(.8) rotate(45deg); transform-origin: 50% 50%;}
     .simbol-item{width: 100vw; height: 100vw;}
+    
 
     @keyframes spin {
         0% {transform: translate(-50%, -50%) rotate(0deg); opacity: 1;}
@@ -521,8 +523,7 @@ animation-delay: .7s;animation-name: aniP3;animation-duration: .9s;animation-ite
         0% {opacity:0; transform: translate(-50%, -50%) scale(.7) rotate(95deg);}
         100% {opacity:1; transform: translate(-50%, -50%) scale(.8) rotate(45deg);}
     }
-    /* .service .card-list.on{position: relative;}
-    .service .card-list.on li{position: absolute; width: 100%; height: 100%;} */
+    .service .tit h2{margin-bottom: 2rem;}
     .service .card-list{flex-wrap: wrap; margin-top: 15vw; padding: 0 10vw;}
     .service .card-list li.hover{width: 50%;}
     .service .card-list li{width: 50%; height: 40vw; } 

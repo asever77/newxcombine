@@ -191,13 +191,22 @@
         document.addEventListener("DOMContentLoaded", () => {
             uiNXC.parallax.init();
             uiNXC.callback.product1 = (v) => {
-                (Number(v.start) > 70) && v.el.classList.add('act');
+                let n = 70;
+                uiNXC.state.device.mobile ? n = 30 : '';
+
+                (Number(v.start) > n) && v.el.classList.add('act');
             }
             uiNXC.callback.product2 = (v) => {
-                (Number(v.start) > 70) && v.el.classList.add('act');
+                let n = 70;
+                uiNXC.state.device.mobile ? n = 30 : '';
+
+                (Number(v.start) > n) && v.el.classList.add('act');
             }
             uiNXC.callback.product3 = (v) => {
-                (Number(v.start) > 60) && v.el.classList.add('act');
+                let n = 70;
+                uiNXC.state.device.mobile ? n = 30 : '';
+
+                (Number(v.start) > n) && v.el.classList.add('act');
             }
            
             const cards = document.querySelectorAll('.card-list > li');
