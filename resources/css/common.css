@@ -238,8 +238,8 @@ legend,
 
 .ft-evm{ font-family: 'Evm';}
 
-.newxcombine{position: relative; width: 100%; height: 100vmax;}
-.simbol{position: absolute;  width:50vmax; height:50vmax; left:50%; top:8vmax; transform: translate(-50%, 0) scale(.8) rotate(45deg); z-index: 2;animation-delay: 2.4s;animation-name: simbol;animation-duration: .3s;animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;opacity: 0;}
+.newxcombine{position: relative; width: 100%; height: 100vh; z-index: 0;}
+.simbol{position: absolute;  width:50vmax; height:50vmax; left:50%; top:50%; transform: translate(-50%, -50%) scale(.8) rotate(45deg); z-index: 2;animation-delay: 2.4s;animation-name: simbol;animation-duration: .3s;animation-iteration-count: 1;animation-timing-function:linear; animation-fill-mode:forwards;opacity: 0; transition: top .2s ease;} 
 .simbol-item{ position: absolute; width:50vmax; height:50vmax; transition: all .5s ease-in;}
 .simbol-item > div{width:100%; height: 17%;position: absolute; top:0; display: flex; justify-content: space-between;}
 .simbol-item > div > div{width:38%; height:100%; background-color: #fff; border-radius: 2vw; }
@@ -251,12 +251,11 @@ transform-origin: center center;}
 .simbol-item .n1 > div{background: linear-gradient(to right, rgba(53,173,159,1) 50%, rgba(53,173,159,.3));}
 .simbol-item .n1 > div + div{background: linear-gradient(to left, rgba(58,85,162,1) 50%, rgba(58,85,162,.3));}
 @keyframes simbol {
-    0% {opacity:0; transform: translate(-50%, 0) scale(.7) rotate(95deg);}
-    100% {opacity:1; transform: translate(-50%, 0) scale(.8) rotate(45deg);}
+    0% {opacity:0; transform: translate(-50%, -50%) scale(.7) rotate(95deg);}
+    100% {opacity:1; transform: translate(-50%, -50%) scale(.8) rotate(45deg);}
 }
-.newxcombine .txt{position: absolute;top: 28vmax;left: 50%;width: 10vmax; height: 10vmax; font-size: 3vmin; font-weight: 200;word-break: keep-all;z-index: 2; display: flex; justify-content: center; gap:10vw; transform: translate(-50%,0); white-space: nowrap;}
+.newxcombine .txt{position: absolute;top: 50%;left: 50%;width: 10vmax; height: 10vmax; font-size: 3vmin; font-weight: 200;word-break: keep-all;z-index: 2; display: flex; justify-content: center; gap:10vw; transform: translate(-50%, -50%); white-space: nowrap; transition: top .2s ease;}
 .newxcombine .txt strong{font-size: 4vw; letter-spacing: .7vw; display: block; margin: .2vmax 0;}
-
 .newxcombine .txt1{position: absolute; top: -8vmax; left: -12vmax;
 animation-delay: 4s; animation-name: txt1;animation-duration: .4s;animation-iteration-count: 1;animation-timing-function:ease-out; animation-fill-mode:forwards;opacity: 0;}
 .newxcombine .txt2{position: absolute; top: 9vmax; left: 5vmax;
@@ -277,7 +276,7 @@ animation-delay: 5s;animation-name: txt3;animation-duration: .4s;animation-itera
     100% {opacity:.5; }
 }
 
-.vane{position: absolute;  width:80vmax;  height:80vmax; left:50%; transform: translate(-50%, 0); top:-6vmax;animation-delay: .55s;animation-duration:20s; animation-name: spin; animation-iteration-count: infinite;animation-timing-function:linear;transform-origin:50% 50%;transition: all .5s ease-in; opacity: 1;}
+.vane{position: absolute;  width:80vmax;  height:80vmax; left:50%; transform: translate(-50%, -50%); top:50%;animation-delay: .55s;animation-duration:20s; animation-name: spin; animation-iteration-count: infinite;animation-timing-function:linear;transform-origin:50% 50%; opacity: 1;transition: top .2s ease;}
 .vane:hover{opacity: 0.5;}
 .vane-item{ position: absolute;opacity: 0; width:80vmax; height:80vmax; transition: all .5s ease-in;}
 .vane-item > div{width:100%; height: 16%;position: absolute; top:0; display: flex; justify-content: space-between;}
@@ -296,13 +295,13 @@ animation-delay: 5s;animation-name: txt3;animation-duration: .4s;animation-itera
 .vane-item.n5{transform: rotate(75deg); animation-delay: .6s;animation-name: vane5;animation-duration: .2s;animation-iteration-count: 1;animation-timing-function:ease-out; animation-fill-mode:forwards;}
 .vane-item.n6{transform: rotate(90deg); animation-delay: .7s;animation-name: vane6;animation-duration: .2s;animation-iteration-count: 1;animation-timing-function:ease-out; animation-fill-mode:forwards;}
 @keyframes spin {
-    0% {transform: translate(-50%, 0) rotate(0deg); opacity: 1;}
-    25% {transform: translate(-50%, 0) rotate(90deg); opacity: .7;}
-    50% {transform: translate(-50%, 0) rotate(180deg); opacity: .4;}
-    55% {transform: translate(-50%, 0) rotate(198deg); opacity: .6;}
-    75% {transform: translate(-50%, 0) rotate(270deg); opacity: .9;}
-    80% {transform: translate(-50%, 0) rotate(290deg); opacity: .8;}
-    100% {transform: translate(-50%, 0) rotate(360deg); opacity: 1;}
+    0% {transform: translate(-50%, -50%) rotate(0deg); opacity: 1;}
+    25% {transform: translate(-50%, -50%) rotate(90deg); opacity: .7;}
+    50% {transform: translate(-50%, -50%) rotate(180deg); opacity: .4;}
+    55% {transform: translate(-50%, -50%) rotate(198deg); opacity: .6;}
+    75% {transform: translate(-50%, -50%) rotate(270deg); opacity: .9;}
+    80% {transform: translate(-50%, -50%) rotate(290deg); opacity: .8;}
+    100% {transform: translate(-50%, -50%) rotate(360deg); opacity: 1;}
 }
 @keyframes vane1 {
     0% {opacity: 0; transform: rotate(0deg)}
@@ -329,17 +328,17 @@ animation-delay: 5s;animation-name: txt3;animation-duration: .4s;animation-itera
     100% {opacity: .6; transform: rotate(90deg)}
 }
 
-.service{width: 100%; height: 100vmax;    
+.service{width: 100%; height: 100vmax; position: relative; z-index: 1;  
 display: flex;
 flex-direction: column;
-justify-content: center;}
-.service .tit{padding: 0 10vw;}
-.service .tit h2{font-size: 4vw; font-family: 'Evm'; letter-spacing: .4rem; margin-bottom: 1.6vw;}
+justify-content: flex-start;}
+.service .tit{padding: 7% 10vw 0;}
+.service .tit h2{font-size: 4vmin; font-family: 'Evm'; letter-spacing: .4rem; margin-bottom: 1.6vw;}
 .service .tit h2 span{color: #39b9a8;}
-
-.service .card-list{display: flex; width:100%;  justify-content: center; margin-top: 6vw; padding: 0 2%; }
-.service .card-list li {position: relative; width: 20%; height: 30vw; transition:none; cursor: pointer; transition: all .3s ease-in  ;}
-.service .card-item{width:20vw; height: 30vw; background-color: #000; border-radius: 3vw; max-width:59.5rem; max-height: 92.3rem; position: absolute; left:50%; padding: 3vw; overflow: hidden; transform: translate(-50%, 0) rotate(25deg) scale(.8); transition: all .1s ease-in  ;} 
+.service .tit p{font-size: 1.2vw; color:#999;}
+.service .card-list{display: flex; width:100%;  justify-content: center; margin-top: 3vmax; padding: 0 2%; }
+.service .card-list li {position: relative; width: 20%; height: 30vmax; transition:none; cursor: pointer; transition: all .3s ease-in  ;}
+.service .card-item{width:20vmax; height: 30vmax; background-color: #000; border-radius: 3vw;  position: absolute; left:50%; padding: 2vmax; overflow: hidden; transform: translate(-50%, 0) rotate(25deg) scale(.8); transition: all .1s ease-in  ;} 
 
 .service .card-item::after{content:""; display: block; position:absolute; top:0; left:0; width: 100%; height:100%; z-index: 1; opacity: 1; transition: opacity .9s ease-out;}
 .service .card-item.c1::after{background-color: #0f3741;}
@@ -347,32 +346,32 @@ justify-content: center;}
 .service .card-item.c3::after{background-color: #1f2e46;}
 .service .card-item.c4::after{background-color: #0f2440;}
 .service .card-item > *{display: block; position: relative ; z-index: 2;}
-.service .card-item em{font-family: 'Evm'; font-size: 1vw; font-style: normal; margin-top: 4vw; margin-bottom: .6vw;}
-.service .card-item strong{font-size: 3vw; font-weight: 700; opacity: .6;}
-.service .card-item p{font-size: 1.4vw; font-weight: 200; margin-top: -.4vw;}
-.service .card-item p + p{font-size: 1vw; font-weight: 200;color:#999 !important; margin-top: 1.2vw;}
+.service .card-item em{font-family: 'Evm'; font-size: 1vmax; font-style: normal; margin-top: 4vmax; margin-bottom: .6vmax;}
+.service .card-item strong{font-size: 2.4vmax; font-weight: 700; opacity: .6;}
+.service .card-item p{font-size: 1.4vmax; font-weight: 200; margin-top: -.4vmax;}
+.service .card-item p + p{font-size: 1.2vmax; font-weight: 200;color:#999 !important; margin-top: 1.2vmax;}
 .service .card-item img{display: block; position: absolute; opacity:0; bottom:-10vw; right:2vw; z-index: 0; transition: all .2s ease-in  ;}
-.service .card-item.c1 img{width:12vw; right:2vw;}
-.service .card-item.c2 img{width:12vw; right:3.4vw;}
-.service .card-item.c3 img{width:12vw; right:-2vw;}
-.service .card-item.c4 img{width:12vw; right:2vw;}
+.service .card-item.c1 img{width:12vmax; right:2vmax;}
+.service .card-item.c2 img{width:12vmax; right:3.4vmax;}
+.service .card-item.c3 img{width:12vmax; right:-2vmax;}
+.service .card-item.c4 img{width:12vmax; right:2vmax;}
 
 .service .hover .card-item::after{opacity: 0;}
-.service .hover .card-item{padding: 2vw; transform: translate(-50%, 0) rotate(0) scale(1);}
+.service .hover .card-item{padding: 2vmax; transform: translate(-50%, 0) rotate(0) scale(1);}
 .service .hover .card-item.c1{background:linear-gradient(#14e1c7, #116e98);}
 .service .hover .card-item.c2{background:linear-gradient(#46bdc4, #8c8bc2);}
 .service .hover .card-item.c3{background:linear-gradient(#8b8bc2, #3c57a6);}
 .service .hover .card-item.c4{background:linear-gradient(#3b57a6, #8c8bc2);}
 
-.service .hover .card-item em{font-size: 1vw; color: #fff !important;margin-top: 1vw;}
-.service .hover .card-item strong{font-size: 3vw; color: #fff; opacity: 1;}
-.service .hover .card-item p{font-size: 1.4vw; color: #fff !important;}
-.service .hover .card-item p + p{font-size: 1vw; color: #fff !important;}
+.service .hover .card-item em{font-size: 1vmax; color: #fff !important;margin-top: 1vmax;}
+.service .hover .card-item strong{font-size: 3vmax; color: #fff; opacity: 1;}
+.service .hover .card-item p{font-size: 1.4vmax; color: #fff !important;}
+.service .hover .card-item p + p{font-size: 1vmax; color: #fff !important;}
 .service .hover .card-item img{opacity:1; }
-.service .hover .card-item.c1 img{bottom:2vw; right:2vw;}
-.service .hover .card-item.c2 img{bottom:2vw; right:3.4vw;}
-.service .hover .card-item.c3 img{bottom:2vw; right:-2vw;}
-.service .hover .card-item.c4 img{bottom:2vw; right:2vw;}
+.service .hover .card-item.c1 img{bottom:2vmax; right:2vmax;}
+.service .hover .card-item.c2 img{bottom:2vmax; right:3.4vmax;}
+.service .hover .card-item.c3 img{bottom:2vmax; right:-2vmax;}
+.service .hover .card-item.c4 img{bottom:2vmax; right:2vmax;}
 .service .card-list li.hover {width: 30%; z-index: 1;}
 
 .service .card-item.c1 em,
@@ -396,7 +395,7 @@ justify-content: center;}
 }
 
 
-.product{width: 100%; height: 70vw; position: relative;}
+.product{width: 100%; height: 70vw; position: relative; z-index: 1; }
 .product .info > *{display: block;}
 .product .info{position: absolute; top:20%; left:60%;opacity:0; }
 .product .info em{font-family: 'Evm'; font-size: 2vmin; font-style: normal;}
@@ -480,12 +479,12 @@ animation-delay: .7s;animation-name: aniP3;animation-duration: .9s;animation-ite
 }
 
 
-.contact{width: 100%; padding:10vmin 0;    
+.contact{width: 100%; padding:7% 0; height: 100vmax; position: relative; z-index: 1; 
 display: flex;
 flex-direction: column;
 justify-content: flex-start; font-size: 2rem; text-align: center;}
 .contact .tit{padding: 0 10vw; width: 100%;}
-.contact .tit h2{font-size: 4vw; font-family: 'Evm'; letter-spacing: .4rem; margin-bottom: 1.6vw; width: 100%; text-align: center;}
+.contact .tit h2{font-size: 4vmin; font-family: 'Evm'; letter-spacing: .4rem; margin-bottom: 1.6vw; width: 100%; text-align: center;}
 .contact .tit h2 span{color: #39b9a8; display: inline-block; margin: 0 2rem;}
 .contact .tit p{font-size: 1.2vw; color:#999;}
 .form {margin-top: 10rem; padding: 0 2rem;}
@@ -550,7 +549,8 @@ input:focus{border:0; outline: 0;}
     .service .card-list{flex-wrap: wrap; margin-top: 15vw; padding: 0 10vw;}
     .service .card-list li.hover{width: 50%;}
     .service .card-list li{width: 50%; height: 40vw; } 
-    .service .card-item{width:34vw; height: 34vw; background-color: #000; border-radius: 3vw; max-width:59.5rem; max-height: 92.3rem; position: absolute; left:50%; padding: 2vw; overflow: hidden; transform: translate(-50%, 0) rotate(25deg) scale(1); transition: all .1s ease-in  ;} 
+    .service .card-item{width:34vw; height: 48vw; background-color: #000; border-radius: 3vw; position: absolute; left:50%; padding: 4vw; overflow: hidden; transform: translate(-50%, 0) rotate(25deg) scale(1); transition: all .1s ease-in  ;} 
+    .service .card-item em{margin-top: 3vw;font-size:1vw}
     .service .card-list li.hover .card-item.c1{transform: translate(0%, 40%) rotate(0) scale(2);}
     .service .card-list li.hover .card-item.c2{transform: translate(-100%, 40%) rotate(0) scale(2);}
     .service .card-list li.hover .card-item.c3{transform: translate(0%, -40%) rotate(0) scale(2);}
@@ -571,6 +571,10 @@ input:focus{border:0; outline: 0;}
     .product .info b{font-size: 1.6rem;}
     .product .info p{font-size:1.4rem}
     .product .info a{font-size: 1.4rem;}
-
+    .service .tit p{font-size:1.4rem; margin-top: 2rem;}
     .contact .tit p{font-size:1.4rem; margin-top: 2rem;}
+    .base-footer .ft-evm{margin-top: 2rem; font-size: .7rem;}
+    .base-footer address{ font-size: 1.4rem;  }
+
+
 }

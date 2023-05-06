@@ -20,7 +20,7 @@
 	<div class="base-wrap">
 		<header class="base-header">
 			<h1>
-				<img src="../resources/img/logo.png" alt="new x combine">
+				<button type="button" class="ui-scrollmove-btn" data-area="page" data-name="page_intro"><img src="../resources/img/logo.png" alt="new x combine"></button>
 			</h1>
 			<nav>
 				<button type="button" class="ui-scrollmove-btn" data-area="page" data-name="page_new">new x combine</button>
@@ -30,7 +30,7 @@
 		</header>
 
 		<main class="base-main ui-parallax">
-			<section class="newxcombine ui-parallax-wrap ui-scrollmove-item" data-name="page_new">
+			<section class="newxcombine ui-parallax-wrap ui-scrollmove-item" data-act="intro" data-name="page_intro">
 				<div class="vane">
 					<div class="vane-item n1">
 						<div class="n1">
@@ -118,7 +118,7 @@
 				</div>
 			</section>
 
-			<section class="service ui-parallax-wrap ui-scrollmove-item" data-name="page_ser">
+			<section class="service ui-parallax-wrap ui-scrollmove-item" data-name="page_new">
 				<div class="tit">
 					<h2>
 						new<span>x</span><br>
@@ -169,7 +169,7 @@
 				</ul>
 			</section>
 
-			<section class="product p1 ui-parallax-wrap" data-act="product1">
+			<section class="product p1 ui-parallax-wrap ui-scrollmove-item" data-act="product1" data-name="page_ser">
 				<div class="info">
 					<em>pink whale</em>
 					<h3>분홍고래</h3>
@@ -277,6 +277,21 @@
 		document.addEventListener("DOMContentLoaded", () => {
 			uiNXC.parallax.init();
 			uiNXC.scroll.init();
+
+			uiNXC.callback.intro = (v) => {
+				let n = v.end;
+				const a = v.el.querySelector('.vane');
+				const b = v.el.querySelector('.simbol');
+				const c = v.el.querySelector('.txt');
+				let _a = 50;
+				let _b = 50;
+				let _c = 50;
+				console.log(Math.floor(_a - (n * 1.2)))
+				// a.style.top = Math.floor(_a - (n * 1.2)) + '%';
+				b.style.top = Math.floor(_b - (n * 1.8)) + '%';
+				c.style.top = Math.floor(_c - (n / 1.2)) + '%';
+			
+			}
 
 			uiNXC.callback.product1 = (v) => {
 				let n = 70;
