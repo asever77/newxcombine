@@ -502,7 +502,9 @@ input:focus{border:0; outline: 0;}
 .base-footer .ft-evm{margin-top: 2rem; font-size: 1.2rem;}
 
 @media (max-width: 900px) {
-    .base-header h1 img {width: 40vw;}
+    .base-header {padding:2rem 0 2.2rem}
+    .base-header h1 {left:2.4rem}
+    .base-header h1 img {width: auto;height:1.6rem}
     .vane{ width:200vw;  height:200vw; top:50%;}
     .vane-item{ width:200vw; height:200vw; }
     .base-header nav{
