@@ -280,7 +280,7 @@ legend,
     left: 0;
     width: 100%;
     z-index: 1;
-    padding: 2vw 0 2vw;
+    padding: 1.8vw 0 2vw;
     display: flex;
 }
 
@@ -297,6 +297,8 @@ legend,
     position: relative;
     top: 0;
     left: 6vw;
+    display: flex;
+    align-items: center;
 }
 
 .base-header h1 img {
@@ -309,7 +311,7 @@ legend,
     display: flex;
     justify-content: center;
     gap: 10vw;
-    padding-top: 1rem;
+    padding-top: .4rem;
     transition: all .2s ease-in;
 }
 
@@ -764,20 +766,21 @@ legend,
 
 .service {
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     height: 100%;
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    padding: 0 0 11vw;
 }
 
 .service .tit {
     padding: 7% 9% 0;
 }
 .service .tit h2 {
-    font-size: 3vw;
+    font-size: 3vmax;
     font-family: 'Evm';
     margin-bottom: 1.6vw;
 }
@@ -1138,10 +1141,10 @@ legend,
 
 .product.p1 .img {
     position: absolute;
-    max-width: 100rem;
-    max-height: 70rem;
+    /* max-width: 100rem; */
+    /* max-height: 70rem; */
     width: 44vw;
-    height: 40vw;
+    height: 38vw;
     top: 12vw;
     right: 40%;
     overflow: hidden;
@@ -1150,12 +1153,12 @@ legend,
 }
 
 .product.p1 .card {
-    max-width: 40rem;
-    max-height: 70rem;
+    /* max-width: 40rem; */
+    /* max-height: 70rem; */
     width: 24vw;
-    height: 40vw;
+    height: 38vw;
     background: linear-gradient(#14e1c7, #116e98);
-    border-radius: 3vw;
+    border-radius: 3dvw;
 }
 
 .product.p1 .img img {
@@ -1386,26 +1389,6 @@ legend,
     }
 }
 
-@media (max-width: 1400px) {
-    .base-header h1 img {
-        width: 30vw;
-    }
-
-    .base-header nav {
-        justify-content: flex-end;
-        padding-right: 4vw;
-    }
-
-    .newxcombine {
-        min-height: 92rem;
-    }
-
-    .service {
-        min-height: 92rem;
-    }
-}
-
-
 .contact {
     width: 100%;
     margin-top:20vh;
@@ -1427,7 +1410,7 @@ legend,
 }
 
 .contact .tit h2 {
-    font-size: 3vw;
+    font-size: 3vmax;
     font-family: 'Evm';
     letter-spacing: .4rem;
     margin-bottom: 1.6vw;
@@ -1541,10 +1524,146 @@ input:focus {
     font-size: 1.2rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1400px) {
     .base-header h1 img {
-        width: 40vw;
+        width: 30vw;
     }
+
+    .base-header nav {
+        justify-content: flex-end;
+        padding-right: 4vw;
+    }
+
+    .newxcombine {
+        min-height: 92rem;
+    }
+
+    .service {
+        min-height: 0;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .service{padding: 0;}
+    .service .tit h2 {
+        margin-bottom: 2rem;
+    }
+
+    .service .card-list {
+        flex-wrap: wrap;
+        margin-top: 15vw;
+        padding: 0 10vw 30vw;
+    }
+
+    .service .card-list li.hover {
+        width: 50%;
+    }
+
+    .service .card-list li {
+        width: 50%;
+        height: 40vw;
+    }
+
+    .service .card-item {
+        width: 34vw;
+        height: 48vw;
+        background-color: #000;
+        border-radius: 3vw;
+        position: absolute;
+        left: 50%;
+        padding: 4vw;
+        overflow: hidden;
+        transform: translate(-50%, 0) rotate(25deg) scale(1);
+        transition: all .1s ease-in;
+    }
+
+    .service .card-item em {
+        margin-top: 3vw;
+        font-size: 1vw
+    }
+
+    .service .card-list li.hover .card-item.c1 {
+        transform: translate(0%, 40%) rotate(0) scale(2);
+    }
+
+    .service .card-list li.hover .card-item.c2 {
+        transform: translate(-100%, 40%) rotate(0) scale(2);
+    }
+
+    .service .card-list li.hover .card-item.c3 {
+        transform: translate(0%, -40%) rotate(0) scale(2);
+    }
+
+    .service .card-list li.hover .card-item.c4 {
+        transform: translate(-100%, -40%) rotate(0) scale(2);
+    }
+
+    .service .card-list li.hover .card-item {
+        width: 40vw;
+        height: 50vw;
+    }
+
+    .service .hover .card-item {
+        padding: 3vmin;
+    }
+
+    .service .hover .card-item em {
+        font-size: 1.7vmin;
+        color: #fff !important;
+        margin-top: 1vmin;
+    }
+
+    .service .hover .card-item strong {
+        font-size: 4vmin;
+        color: #fff;
+        opacity: 1;
+    }
+
+    .service .hover .card-item p {
+        font-size: 2.4vmin;
+        color: #fff !important;
+        margin-top: .1vmin;
+    }
+
+    .service .hover .card-item p+p {
+        font-size: 2vmin;
+        color: #fff !important;
+        margin-top: 1vmin;
+    }
+
+    .service .hover .card-item img {
+        opacity: 1;
+    }
+
+    .service .hover .card-item.c1 img {
+        width: 22vmin;
+        bottom: 2vmin;
+        right: 2vmin;
+    }
+
+    .service .hover .card-item.c2 img {
+        width: 22vmin;
+        bottom: 2vmin;
+        right: 3.4vmin;
+    }
+
+    .service .hover .card-item.c3 img {
+        width: 22vmin;
+        bottom: 2vmin;
+        right: -2vmin;
+    }
+
+    .service .hover .card-item.c4 img {
+        width: 22vmin;
+        bottom: 2vmin;
+        right: 2vmin;
+    }
+}
+@media (max-width: 900px) {
+
+    .base-header h1 {left:2.4rem}
+    .base-header h1 img {width: auto;height:1.6rem}
 
     .vane {
         width: 200vw;
@@ -1672,119 +1791,6 @@ input:focus {
         }
     }
 
-    .service .tit h2 {
-        margin-bottom: 2rem;
-    }
-
-    .service .card-list {
-        flex-wrap: wrap;
-        margin-top: 15vw;
-        padding: 0 10vw;
-    }
-
-    .service .card-list li.hover {
-        width: 50%;
-    }
-
-    .service .card-list li {
-        width: 50%;
-        height: 40vw;
-    }
-
-    .service .card-item {
-        width: 34vw;
-        height: 48vw;
-        background-color: #000;
-        border-radius: 3vw;
-        position: absolute;
-        left: 50%;
-        padding: 4vw;
-        overflow: hidden;
-        transform: translate(-50%, 0) rotate(25deg) scale(1);
-        transition: all .1s ease-in;
-    }
-
-    .service .card-item em {
-        margin-top: 3vw;
-        font-size: 1vw
-    }
-
-    .service .card-list li.hover .card-item.c1 {
-        transform: translate(0%, 40%) rotate(0) scale(2);
-    }
-
-    .service .card-list li.hover .card-item.c2 {
-        transform: translate(-100%, 40%) rotate(0) scale(2);
-    }
-
-    .service .card-list li.hover .card-item.c3 {
-        transform: translate(0%, -40%) rotate(0) scale(2);
-    }
-
-    .service .card-list li.hover .card-item.c4 {
-        transform: translate(-100%, -40%) rotate(0) scale(2);
-    }
-
-    .service .card-list li.hover .card-item {
-        width: 40vw;
-        height: 50vw;
-    }
-
-    .service .hover .card-item {
-        padding: 3vmin;
-    }
-
-    .service .hover .card-item em {
-        font-size: 1.7vmin;
-        color: #fff !important;
-        margin-top: 1vmin;
-    }
-
-    .service .hover .card-item strong {
-        font-size: 4vmin;
-        color: #fff;
-        opacity: 1;
-    }
-
-    .service .hover .card-item p {
-        font-size: 2.4vmin;
-        color: #fff !important;
-        margin-top: .1vmin;
-    }
-
-    .service .hover .card-item p+p {
-        font-size: 2vmin;
-        color: #fff !important;
-        margin-top: 1vmin;
-    }
-
-    .service .hover .card-item img {
-        opacity: 1;
-    }
-
-    .service .hover .card-item.c1 img {
-        width: 22vmin;
-        bottom: 2vmin;
-        right: 2vmin;
-    }
-
-    .service .hover .card-item.c2 img {
-        width: 22vmin;
-        bottom: 2vmin;
-        right: 3.4vmin;
-    }
-
-    .service .hover .card-item.c3 img {
-        width: 22vmin;
-        bottom: 2vmin;
-        right: -2vmin;
-    }
-
-    .service .hover .card-item.c4 img {
-        width: 22vmin;
-        bottom: 2vmin;
-        right: 2vmin;
-    }
 
     .product {
         height: 80vw;
