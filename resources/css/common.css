@@ -268,14 +268,10 @@ legend,
     width: 100%;
 }
 
-.base-header {
-    background: rgb(4, 23, 39, .5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
+
 
 .base-header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -336,8 +332,8 @@ legend,
 
 .simbol {
     position: absolute;
-    width: 50vmax;
-    height: 50vmax;
+    width: 65vmax;
+    height: 65vmax;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) scale(.8) rotate(45deg);
@@ -354,8 +350,8 @@ legend,
 
 .simbol-item {
     position: absolute;
-    width: 50vmax;
-    height: 50vmax;
+    width: 65vmax;
+    height: 65vmax;
     transition: all .5s ease-in;
 }
 
@@ -422,7 +418,7 @@ legend,
     left: 50%;
     width: 10vmax;
     height: 10vmax;
-    font-size: 3vmin;
+    font-size: 2.6vmax;
     font-weight: 200;
     word-break: keep-all;
     z-index: 2;
@@ -435,7 +431,7 @@ legend,
 }
 
 .newxcombine .txt strong {
-    font-size: 4vw;
+    font-size: 4vmax;
     letter-spacing: .7vw;
     display: block;
     margin: .2vmax 0;
@@ -443,11 +439,26 @@ legend,
 
 .newxcombine .txt1 {
     position: absolute;
-    top: -8vmax;
-    left: -12vmax;
+    top: -5vmax;
+    left: -15vmax;
+    
+}
+.newxcombine .txt1 strong{
+    margin:3.2vmax 0 0;
+    position: absolute;
     animation-delay: 4s;
-    animation-name: txt1;
-    animation-duration: .4s;
+    animation-name: LR;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+.newxcombine .txt1 p{
+    position: absolute;
+    animation-delay: 5s;
+    animation-name: RL;
+    animation-duration: .5s;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
@@ -456,30 +467,46 @@ legend,
 
 .newxcombine .txt2 {
     position: absolute;
-    top: 9vmax;
-    left: 5vmax;
+    top: 6vmax;
+    left: 44vmax;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    /* left: auto; */
+}
+.newxcombine .txt2 strong{
+    position: absolute;
     animation-delay: 4.5s;
-    animation-name: txt2;
-    animation-duration: .4s;
+    animation-name: RL;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+.newxcombine .txt2 p{
+    margin:5.2vmax 0 0;
+    position: absolute;
+    animation-delay: 5.5s;
+    animation-name: LR;
+    animation-duration: .5s;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     opacity: 0;
 }
 
+
 .newxcombine .txt3 {
-    font-size: 5vmax;
+    font-size: 4.2vmax;
     color: #041727;
     text-shadow: -0.1rem -0.1rem 0 #fff, 0.1rem -0.1rem 0 #fff, -0.1rem 0.1rem 0 #fff, 0.1rem 0.1rem 0 #fff;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation-delay: 5s;
-    animation-name: txt3;
+    animation-delay: 6s;
+    animation-name: txtOp;
     animation-duration: .4s;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
@@ -487,44 +514,62 @@ legend,
     opacity: 0;
 }
 
-@keyframes txt1 {
+@keyframes LR {
     0% {
         opacity: 0;
-        transform: translate(0, 2vmax);
+        transform: translate(-4vmax, 0);
     }
-
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes RL {
+    0% {
+        opacity: 0;
+        transform: translate(4vmax, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes BT {
+    0% {
+        opacity: 0;
+        transform: translate(0, 4vmax);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes TB {
+    0% {
+        opacity: 0;
+        transform: translate(0, -4vmax);
+    }
     100% {
         opacity: 1;
         transform: translate(0, 0);
     }
 }
 
-@keyframes txt2 {
+
+@keyframes txtOp {
     0% {
         opacity: 0;
-        transform: translate(0, -2vmax);
     }
 
     100% {
         opacity: 1;
-        transform: translate(0, 0);
-    }
-}
-
-@keyframes txt3 {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: .5;
     }
 }
 
 .vane {
     position: absolute;
-    width: 80vmax;
-    height: 80vmax;
+    width: 100vmax;
+    height: 100vmax;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -545,8 +590,8 @@ legend,
 .vane-item {
     position: absolute;
     opacity: 0;
-    width: 80vmax;
-    height: 80vmax;
+    width: 100vmax;
+    height: 100vmax;
     transition: all .5s ease-in;
 }
 
@@ -663,27 +708,27 @@ legend,
 
     25% {
         transform: translate(-50%, -50%) rotate(90deg);
-        opacity: .7;
+        opacity: 1;
     }
 
     50% {
         transform: translate(-50%, -50%) rotate(180deg);
-        opacity: .4;
+        opacity: 1;
     }
 
     55% {
         transform: translate(-50%, -50%) rotate(198deg);
-        opacity: .6;
+        opacity: 1;
     }
 
     75% {
         transform: translate(-50%, -50%) rotate(270deg);
-        opacity: .9;
+        opacity: 1;
     }
 
     80% {
         transform: translate(-50%, -50%) rotate(290deg);
-        opacity: .8;
+        opacity: 1;
     }
 
     100% {
@@ -699,7 +744,7 @@ legend,
     }
 
     100% {
-        opacity: .4;
+        opacity: 1;
         transform: rotate(15deg)
     }
 }
@@ -711,7 +756,7 @@ legend,
     }
 
     100% {
-        opacity: .1;
+        opacity: 1;
         transform: rotate(30deg)
     }
 }
@@ -723,7 +768,7 @@ legend,
     }
 
     100% {
-        opacity: .7;
+        opacity: 1;
         transform: rotate(45deg)
     }
 }
@@ -735,7 +780,7 @@ legend,
     }
 
     100% {
-        opacity: .3;
+        opacity: 1;
         transform: rotate(60deg)
     }
 }
@@ -747,7 +792,7 @@ legend,
     }
 
     100% {
-        opacity: .8;
+        opacity: 1;
         transform: rotate(75deg)
     }
 }
@@ -759,7 +804,7 @@ legend,
     }
 
     100% {
-        opacity: .6;
+        opacity: 1;
         transform: rotate(90deg)
     }
 }
@@ -774,15 +819,22 @@ legend,
     flex-direction: column;
     justify-content: flex-start;
     padding: 0 0 11vw;
+    z-index: 2;
 }
-
+.service.act .tit {
+    padding: 2% 9% 0;
+    opacity: 1;
+}
 .service .tit {
-    padding: 7% 9% 0;
+    padding: 20% 9% 0;
+    opacity: 0;
+    transition-delay: 1.5s;
+    transition: all .5s ease-out;
 }
 .service .tit h2 {
     font-size: 3vmax;
     font-family: 'Evm';
-    margin-bottom: 1.6vw;
+    margin-bottom: .5vmax;
 }
 
 .service .tit h2 span {
@@ -793,27 +845,33 @@ legend,
     font-size: 1.2vw;
     color: #999;
 }
-
+.service.act .card-list {
+    margin-top: 2vw;
+    opacity: 1;
+}
 .service .card-list {
     display: flex;
     width: 100%;
     justify-content: center;
-    margin-top: 4vw;
-    padding: 0 8%;
+    margin-top: 14vw;
+    padding: 0 0;
+    opacity: 0;
+    transition-delay: 1.5s;
+    transition: all .5s ease-in;
 }
 
 .service .card-list li {
     position: relative;
-    width: 20%;
-    height: 27vmax;
+    width: 25%;
+    height: 29vmax;
     transition: none;
     cursor: pointer;
     transition: all .3s ease-in;
 }
 
 .service .card-item {
-    width: 19vmax;
-    height: 27vmax;
+    width: 23vmax;
+    height: 31vmax;
     background-color: #000;
     border-radius: 2vw;
     position: absolute;
@@ -822,6 +880,7 @@ legend,
     overflow: hidden;
     transform: translate(-50%, 0) rotate(25deg) scale(.75);
     transition: all .1s ease-in;
+    /* top: -1vmax; */
 }
 
 .service .card-item::after {
@@ -915,7 +974,7 @@ legend,
 
 .service .hover .card-item {
     padding: 2vw;
-    transform: translate(-50%, 0) rotate(0) scale(1);
+    transform: translate(-50%, -1vmax) rotate(0) scale(1);
 }
 
 .service .hover .card-item.c1 {
@@ -1710,6 +1769,15 @@ input:focus {
 
     .newxcombine .txt strong {
         font-size: 6vw;
+    }
+    .newxcombine .txt p {
+        font-size: 4vw;
+    }
+     .newxcombine .txt1 strong{
+        margin-top:5vw
+    }
+    .newxcombine .txt2 p{
+        margin-top:8vw
     }
 
     /* .newxcombine .txt3{font-size: 10vw; top:17vw} */

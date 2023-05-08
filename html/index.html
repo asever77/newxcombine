@@ -118,7 +118,7 @@
 				</div>
 			</section>
 
-			<section class="service ui-parallax-wrap ui-scrollmove-item" data-name="page_new">
+			<section class="service ui-parallax-wrap ui-scrollmove-item" data-act="new" data-name="page_new">
 				<div class="tit">
 					<h2>
 						new<span>x</span><br>
@@ -289,6 +289,22 @@
 				b.style.top = Math.floor(_b - (n * 1.8)) + '%';
 				c.style.top = Math.floor(_c - (n / 1.2)) + '%';
 			
+			}
+			let timer;
+			uiNXC.callback.new = (v) => {
+				let n = 70;
+				uiNXC.state.device.mobile ? n = 30 : '';
+
+				(Number(v.start) > n) ? v.el.classList.add('act') : v.el.classList.remove('act');
+
+				let m = 100;
+				const card = v.el.querySelector('.card-list li:first-child')
+				uiNXC.state.device.mobile ? m = 50 : '';
+				clearTimeout(timer);
+				timer = setTimeout(() => {
+					(Number(v.start) >= m) ? card.classList.add('hover') : card.classList.remove('hover');
+				},800)
+				
 			}
 
 			uiNXC.callback.product1 = (v) => {
