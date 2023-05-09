@@ -11,6 +11,72 @@ html {
     box-sizing: border-box;
 }
 
+guide {
+    opacity: 0.3;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px dashed tomato;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  guide::after, guide::before {
+    content: "";
+    position: absolute;
+    display: block;
+  }
+  guide::after {
+    width: 100%;
+    height: 1px;
+    border-top: 1px dashed tomato;
+    top: 50%;
+    left: 0;
+  }
+  guide::before {
+    width: 1px;
+    height: 100%;
+    border-left: 1px dashed tomato;
+    left: 50%;
+    top: 0;
+  }
+  
+  guide2 {
+    opacity: 0.8;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px dotted rgb(57, 248, 98);
+    background-color: rgba(77, 255, 71, 0.1);
+    pointer-events: none;
+    z-index: 999;
+    margin: 0 !important;
+  }
+  guide2::after, guide2::before {
+    content: "";
+    position: absolute;
+    display: block;
+  }
+  guide2::after {
+    width: 100%;
+    height: 1px;
+    border-top: 1px dotted rgb(57, 248, 98);
+    top: 50%;
+    left: 0;
+  }
+  guide2::before {
+    width: 1px;
+    height: 100%;
+    border-left: 1px dotted rgb(57, 248, 98);
+    left: 50%;
+    top: 0;
+  }
+  
 @font-face {
     font-family: 'Noto';
     src: url('../fonts/notokr-thin.woff2') format('woff2'),
@@ -288,6 +354,7 @@ legend,
     flex-direction: column;
     z-index: 0;
 }
+.base-main > section{height: 100vh;}
 
 .base-header h1 {
     position: relative;
@@ -811,14 +878,14 @@ legend,
 
 .service {
     width: 100%;
-    /* min-height: 100vh; */
-    height: 100%;
+    min-height: 65rem;
+    height: 100vh;
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 0 0 11vw;
+    padding: 0 0 0;
     z-index: 2;
 }
 .service.act .tit {
@@ -832,9 +899,9 @@ legend,
     transition: all .5s ease-out;
 }
 .service .tit h2 {
-    font-size: 3vmax;
+    font-size: 2.4vmax;
     font-family: 'Evm';
-    margin-bottom: .5vmax;
+    margin-bottom: 1vmax;
 }
 
 .service .tit h2 span {
@@ -846,7 +913,7 @@ legend,
     color: #999;
 }
 .service.act .card-list {
-    margin-top: 2vw;
+    margin-top: 5vmax;
     opacity: 1;
 }
 .service .card-list {
@@ -1091,37 +1158,47 @@ legend,
 
 .product {
     width: 100%;
-    height: 70vw;
+    height: 100vh;
     position: relative;
     z-index: 1;
+    max-height: 50vmax;
 }
 
 .product .info>* {
     display: block;
 }
-
-.product .info {
-    position: absolute;
-    top: 20%;
-    left: 60%;
+.product .img{
     opacity: 0;
 }
-
+.product .info {
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    left: 60%;
+    
+}
+.product .info1,
+.product .info2,
+.product .info3,
+.product .info4{opacity: 0;}
 .product .info em {
     font-family: 'Evm';
     font-size: 2vmin;
     font-style: normal;
+    display: block;
 }
 
 .product .info h3 {
     font-size: 7vmin;
     font-weight: 700;
+    display: block;
 }
 
 .product .info b {
     font-size: 3vmin;
     font-weight: 400;
     margin-top: 2vmin;
+    display: block;
 }
 
 .product .info p {
@@ -1130,6 +1207,7 @@ legend,
     color: #999;
     margin-top: 4vmin;
     width: 39vmin;
+    display: block;
 }
 
 .product .info a {
@@ -1158,38 +1236,63 @@ legend,
     transform: rotate(-45deg);
 }
 
-.product.p1.act .info {
+.product.act .info .info1 {
     animation-name: show2;
-    animation-delay: .4s;
+    animation-delay: .2s;
     animation-duration: .4s;
     animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    animation-fill-mode: forwards
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
+.product.act .info .info2 {
+    animation-name: show2;
+    animation-delay: .6s;
+    animation-duration: .4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+.product.act .info .info3 {
+    animation-name: show2;
+    animation-delay: .8s;
+    animation-duration: .4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+.product.act .info .info4 {
+    animation-name: show2;
+    animation-delay: 1s;
+    animation-duration: .4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
 
 .product.p1.act .img {
     animation-name: show1;
-    animation-delay: 0;
-    animation-duration: .4s;
+    animation-delay: .4s;
+    animation-duration: .5s;
     animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    animation-fill-mode: forwards
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
-
 .product.p1.act .img img {
-    width: 73%;
+    width: 83%;
     position: absolute;
-    top: 35%;
-    left: -42%;
+    top: 30%;
+    left: -47%;
     transform: rotate(265deg);
     transform-origin: 100% 100%;
-    animation-delay: .7s;
+    animation-delay: 1.2s;
     animation-name: aniP1;
     animation-duration: .9s;
     animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(1, .16, 0, 1.03);
-    animation-fill-mode: forwards
+    animation-fill-mode: forwards;
 }
+
 
 .product.p1 .img .wrap {
     width: 100%;
@@ -1200,24 +1303,20 @@ legend,
 
 .product.p1 .img {
     position: absolute;
-    /* max-width: 100rem; */
-    /* max-height: 70rem; */
-    width: 44vw;
-    height: 38vw;
-    top: 12vw;
-    right: 40%;
+    width: 44vmax;
+    height: 38vmax;
+    top: 50%;
+    left: 14%;
     overflow: hidden;
-    transform: translate(0, -80%) rotate(-45deg);
-    opacity: 0;
+    transform: translate(0, -50%) rotate(-45deg);
+    margin-top: -6vw;
 }
 
 .product.p1 .card {
-    /* max-width: 40rem; */
-    /* max-height: 70rem; */
-    width: 24vw;
-    height: 38vw;
+    width: 24vmax;
+    height: 38vmax;
     background: linear-gradient(#14e1c7, #116e98);
-    border-radius: 3dvw;
+    border-radius: 3vmax;
 }
 
 .product.p1 .img img {
@@ -1241,27 +1340,21 @@ legend,
 .product.p2.act .info {
     left: 20%;
     /* right: 60%; */
-    animation-name: show2;
-    animation-delay: .4s;
-    animation-duration: .4s;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    animation-fill-mode: forwards
 }
 
 .product.p2.act .img {
     right: auto;
     left: 60%;
     animation-name: show1b;
-    animation-delay: 0;
+    animation-delay: .4s;
     animation-duration: .4s;
     animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-timing-function: ease-in;
     animation-fill-mode: forwards
 }
 
 .product.p2.act .img img {
-    animation-delay: .7s;
+    animation-delay: 0;
     animation-name: aniP2;
     animation-duration: 4s;
     animation-iteration-count: infinite;
@@ -1270,29 +1363,28 @@ legend,
 
 .product.p2 .img {
     position: absolute;
-    width: 44vw;
-    height: 40vw;
-    top: 34%;
+    width: 24vmax;
+    height: 38vmax;
+    top: 50%;
     right: 40%;
-    overflow: visible;
-    transform: translate(0, -80%) rotate(-45deg);
-    opacity: 0;
+    transform: translate(0, -50%) rotate(-45deg);
 }
 
 .product.p2 .card {
-    width: 24vw;
-    height: 40vw;
+    width: 24vmax;
+    height: 38vmax;
     background: linear-gradient(#45bdc4, #8b8cc2);
-    border-radius: 3vw;
+    border-radius: 3vmax;
 }
 
 .product.p2 .img img {
-    width: 36vw;
+    width: 150%;
     position: absolute;
-    top: 23%;
-    left: -18%;
+    top: 18%;
+    left: -34%;
     opacity: 1;
     transform: translate(0, 0) rotate(-45deg);
+    max-width: none;
 }
 
 .product.p2 .info em {
@@ -1330,26 +1422,18 @@ legend,
     }
 }
 
-.product.p3.act .info {
-    animation-name: show2;
-    animation-delay: .4s;
-    animation-duration: .4s;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    animation-fill-mode: forwards
-}
 
 .product.p3.act .img {
     animation-name: show1;
-    animation-delay: 0;
+    animation-delay: .4s;
     animation-duration: .4s;
     animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-timing-function: ease-in;
     animation-fill-mode: forwards
 }
 
 .product.p3.act .img img {
-    animation-delay: .7s;
+    animation-delay: 1.2s;
     animation-name: aniP3;
     animation-duration: .9s;
     animation-iteration-count: 1;
@@ -1359,27 +1443,27 @@ legend,
 
 .product.p3 .img {
     position: absolute;
-    width: 44vw;
-    height: 40vw;
-    top: 13%;
-    right: 40%;
+    width: 44vmax;
+    height: 38vmax;
+    top: 50%;
+    left: 14%;
     overflow: hidden;
-    transform: translate(0, -80%) rotate(-45deg);
-    opacity: 0;
+    transform: translate(0, -50%) rotate(-45deg);
+    margin-top: -6vw;
 }
 
 .product.p3 .card {
-    width: 24vw;
-    height: 40vw;
+    width: 24vmax;
+    height: 38vmax;
     background: linear-gradient(#8b8bc2, #3c57a6);
-    border-radius: 3vw;
+    border-radius: 3vmax;
 }
 
 .product.p3 .img img {
-    width: 42vw;
+    width: 43vmax;
     position: absolute;
-    top: 51%;
-    left: -47%;
+    top: 58%;
+    left: -51%;
     transform: rotate(265deg);
     transform-origin: 100% 100%;
 }
@@ -1396,7 +1480,6 @@ legend,
     0% {
         transform: rotate(265deg);
     }
-
     100% {
         transform: rotate(405deg);
     }
@@ -1406,7 +1489,6 @@ legend,
     0% {
         transform: rotate(265deg);
     }
-
     100% {
         transform: rotate(405deg);
     }
@@ -1419,7 +1501,7 @@ legend,
     }
 
     100% {
-        transform: translate(0, -10%) rotate(-45deg);
+        transform: translate(0, -50%) rotate(-45deg);
         opacity: 1;
     }
 }
@@ -1429,9 +1511,8 @@ legend,
         transform: translate(0, -80%) rotate(45deg);
         opacity: 0;
     }
-
     100% {
-        transform: translate(0, -10%) rotate(45deg);
+        transform: translate(0, -50%) rotate(45deg);
         opacity: 1;
     }
 }
@@ -1441,12 +1522,12 @@ legend,
         transform: translate(0, -80%);
         opacity: 0;
     }
-
     100% {
-        transform: translate(0, -10%);
+        transform: translate(0, 0);
         opacity: 1;
     }
 }
+
 
 .contact {
     width: 100%;
@@ -1599,124 +1680,6 @@ input:focus {
 
     .service {
         min-height: 0;
-    }
-}
-
-
-@media (max-width: 500px) {
-    .service{padding: 0;}
-    .service .tit h2 {
-        margin-bottom: 2rem;
-    }
-
-    .service .card-list {
-        flex-wrap: wrap;
-        margin-top: 15vw;
-        padding: 0 10vw 30vw;
-    }
-
-    .service .card-list li.hover {
-        width: 50%;
-    }
-
-    .service .card-list li {
-        width: 50%;
-        height: 40vw;
-    }
-
-    .service .card-item {
-        width: 34vw;
-        height: 48vw;
-        background-color: #000;
-        border-radius: 3vw;
-        position: absolute;
-        left: 50%;
-        padding: 4vw;
-        overflow: hidden;
-        transform: translate(-50%, 0) rotate(25deg) scale(1);
-        transition: all .1s ease-in;
-    }
-
-    .service .card-item em {
-        margin-top: 3vw;
-        font-size: 1vw
-    }
-
-    .service .card-list li.hover .card-item.c1 {
-        transform: translate(0%, 40%) rotate(0) scale(2);
-    }
-
-    .service .card-list li.hover .card-item.c2 {
-        transform: translate(-100%, 40%) rotate(0) scale(2);
-    }
-
-    .service .card-list li.hover .card-item.c3 {
-        transform: translate(0%, -40%) rotate(0) scale(2);
-    }
-
-    .service .card-list li.hover .card-item.c4 {
-        transform: translate(-100%, -40%) rotate(0) scale(2);
-    }
-
-    .service .card-list li.hover .card-item {
-        width: 40vw;
-        height: 50vw;
-    }
-
-    .service .hover .card-item {
-        padding: 3vmin;
-    }
-
-    .service .hover .card-item em {
-        font-size: 1.7vmin;
-        color: #fff !important;
-        margin-top: 1vmin;
-    }
-
-    .service .hover .card-item strong {
-        font-size: 4vmin;
-        color: #fff;
-        opacity: 1;
-    }
-
-    .service .hover .card-item p {
-        font-size: 2.4vmin;
-        color: #fff !important;
-        margin-top: .1vmin;
-    }
-
-    .service .hover .card-item p+p {
-        font-size: 2vmin;
-        color: #fff !important;
-        margin-top: 1vmin;
-    }
-
-    .service .hover .card-item img {
-        opacity: 1;
-    }
-
-    .service .hover .card-item.c1 img {
-        width: 22vmin;
-        bottom: 2vmin;
-        right: 2vmin;
-    }
-
-    .service .hover .card-item.c2 img {
-        width: 22vmin;
-        bottom: 2vmin;
-        right: 3.4vmin;
-    }
-
-    .service .hover .card-item.c3 img {
-        width: 22vmin;
-        bottom: 2vmin;
-        right: -2vmin;
-    }
-
-    .service .hover .card-item.c4 img {
-        width: 22vmin;
-        bottom: 2vmin;
-        right: 2vmin;
     }
 }
 @media (max-width: 900px) {
@@ -1898,4 +1861,130 @@ input:focus {
         left: 10%;
     }
 
+}
+
+@media (max-width: 700px) {
+    .service{padding: 0; height:auto !important;}
+    .service .tit p{font-size: 1.6rem;}
+    .service .tit h2 {
+        margin-bottom: 2rem;
+    }
+    .service.act .card-list{
+        margin-top: 7vmax;
+    }
+
+    .service .card-list {
+        flex-wrap: wrap;
+        padding: 0 10vw 30vw;
+    }
+
+    .service .card-list li.hover {
+        width: 50%;
+    }
+
+    .service .card-list li {
+        width: 50%;
+        height: 40vw;
+    }
+
+    .service .card-item {
+        width: 34vw;
+        height: 48vw;
+        background-color: #000;
+        border-radius: 3vw;
+        position: absolute;
+        left: 50%;
+        padding: 4vw;
+        overflow: hidden;
+        transform: translate(-50%, 0) rotate(25deg) scale(1);
+        transition: all .1s ease-in;
+    }
+
+    .service .card-item em {
+        margin-top: 3vw;
+        font-size: 1vw
+    }
+
+    .service .card-list li.hover .card-item.c1 {
+        transform: translate(0%, 40%) rotate(0) scale(2);
+    }
+
+    .service .card-list li.hover .card-item.c2 {
+        transform: translate(-100%, 40%) rotate(0) scale(2);
+    }
+
+    .service .card-list li.hover .card-item.c3 {
+        transform: translate(0%, -40%) rotate(0) scale(2);
+    }
+
+    .service .card-list li.hover .card-item.c4 {
+        transform: translate(-100%, -40%) rotate(0) scale(2);
+    }
+
+    .service .card-list li.hover .card-item {
+        width: 40vw;
+        height: 50vw;
+    }
+
+    .service .hover .card-item {
+        padding: 3vmin;
+    }
+
+    .service .hover .card-item em {
+        font-size: 1.7vmin;
+        color: #fff !important;
+        margin-top: 1vmin;
+    }
+
+    .service .hover .card-item strong {
+        font-size: 4vmin;
+        color: #fff;
+        opacity: 1;
+    }
+
+    .service .hover .card-item p {
+        font-size: 2.4vmin;
+        color: #fff !important;
+        margin-top: .1vmin;
+    }
+
+    .service .hover .card-item p+p {
+        font-size: 2vmin;
+        color: #fff !important;
+        margin-top: 1vmin;
+    }
+
+    .service .hover .card-item img {
+        opacity: 1;
+    }
+
+    .service .hover .card-item.c1 img {
+        width: 22vmin;
+        bottom: 2vmin;
+        right: 2vmin;
+    }
+
+    .service .hover .card-item.c2 img {
+        width: 22vmin;
+        bottom: 2vmin;
+        right: 3.4vmin;
+    }
+
+    .service .hover .card-item.c3 img {
+        width: 22vmin;
+        bottom: 2vmin;
+        right: -2vmin;
+    }
+
+    .service .hover .card-item.c4 img {
+        width: 22vmin;
+        bottom: 2vmin;
+        right: 2vmin;
+    }
+    .base-wrap .base-main .product{display: flex; flex-direction: column; justify-content: center; align-items: center; height: auto !important; max-height: none !important;}
+    .base-wrap .base-main .product .img{position: relative;top:0;left: 7vmax;transform: translate(0,0) rotate(-45deg) !important;}
+    .base-wrap .base-main .product .info{position: relative;/* top: 80px; */left:0;transform: translate(0,0);padding-top: 16vmax;width: 100%;padding: 4vmax 6vmax 10vmax;}
+    .product.act .info .info3{width: 100%;}
+
+    .base-wrap .base-main .product.p2 .img{position: relative;top:0;left: 1vmax;transform: translate(0,0) rotate(45deg) !important;}
 }
