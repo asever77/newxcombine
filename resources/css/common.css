@@ -1864,7 +1864,7 @@ input:focus {
 }
 
 @media (max-width: 700px) {
-    .service{padding: 0; height:auto !important;}
+    .service{padding: 0 0 10vmax; height:auto !important;}
     .service .tit p{font-size: 1.6rem;}
     .service .tit h2 {
         margin-bottom: 2rem;
@@ -1981,10 +1981,51 @@ input:focus {
         bottom: 2vmin;
         right: 2vmin;
     }
+
+
     .base-wrap .base-main .product{display: flex; flex-direction: column; justify-content: center; align-items: center; height: auto !important; max-height: none !important;}
-    .base-wrap .base-main .product .img{position: relative;top:0;left: 7vmax;transform: translate(0,0) rotate(-45deg) !important;}
-    .base-wrap .base-main .product .info{position: relative;/* top: 80px; */left:0;transform: translate(0,0);padding-top: 16vmax;width: 100%;padding: 4vmax 6vmax 10vmax;}
+    .base-wrap .base-main .product .img{position: relative;top:0;left: 7vmax;transform: translate(0,0) rotate(-45deg);}
+    .base-wrap .base-main .product .info{position: relative;/* top: 80px; */left:0;transform: translate(0,0);padding-top: 16vmax;width: 100%;padding: 4vmax 6vmax 6vmax;}
     .product.act .info .info3{width: 100%;}
 
-    .base-wrap .base-main .product.p2 .img{position: relative;top:0;left: 1vmax;transform: translate(0,0) rotate(45deg) !important;}
+    .base-wrap .base-main .product.p2 .img{position: relative;top: 6vmax;left: 1vmax;transform: translate(0,0) rotate(45deg) !important;}
+    .base-wrap .base-main .product.p2 .info * {text-align:right;}
+    .base-wrap .base-main .product.p2 .info{    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;}
+
+    @keyframes show1 {
+        0% {
+            transform: translate(0, -30%) rotate(-45deg);
+            opacity: 0;
+        }
+    
+        100% {
+            transform: translate(0, 0) rotate(-45deg);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes show1b {
+        0% {
+            transform: translate(0, -30%) rotate(45deg);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(0, 0) rotate(45deg);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes show2 {
+        0% {
+            transform: translate(0, -30%);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
 }
