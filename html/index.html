@@ -119,6 +119,7 @@
 			</section>
 
 			<section class="service ui-parallax-wrap ui-scrollmove-item" data-act="new" data-name="page_new">
+				
 				<div class="tit">
 					<h2>
 						new<span>x</span><br>
@@ -170,53 +171,64 @@
 			</section>
 
 			<section class="product p1 ui-parallax-wrap ui-scrollmove-item" data-act="product1" data-name="page_ser">
-				<div class="info">
-					<em>pink whale</em>
-					<h3>분홍고래</h3>
-					<b>디지털로 짓다 팔다</b>
-					<p>홈페이지부터 모델하우스 뉴미디어까지, Visual, Data, UX, Platform을 활용한 토탈 분양솔루션을 제안합니다.</p>
-					<a href="#">바로가기</a>
-				</div>
 				<div class="img">
 					<div class="wrap">
 						<div class="card"></div>
 						<img src="../resources/img/prd1.png" alt="">
 					</div>
 				</div>
+				<div class="info">
+					<div class="info1">
+						<em>pink whale</em>
+						<h3>분홍고래</h3>
+					</div>
+					
+					<b class="info2">디지털로 짓다 팔다</b>
+					<p class="info3">홈페이지부터 모델하우스 뉴미디어까지, Visual, Data, UX, Platform을 활용한 토탈 분양솔루션을 제안합니다.</p>
+					<a class="info4" href="#">바로가기</a>
+				</div>
+				
 			</section>
 
 			<section class="product p2 ui-parallax-wrap" data-act="product2">
-				<div class="info">
-					<em>RE CATCH</em>
-					<h3>분양캐치</h3>
-					<b>분양 판매/구인의 모든 것</b>
-					<p>분양정보를 쉽게 얻을 수 있는 새로운 플랫폼<br>
-						현장과 분양전문가를 매칭<br>
-						전국의 분양 전문가들을 통해 신뢰할 수 있는 정보를 알려드립니다.</p>
-					<a href="#">바로가기</a>
-				</div>
 				<div class="img">
 					<div class="wrap">
 						<div class="card"></div>
 						<img src="../resources/img/prd2.png" alt="">
 					</div>
 				</div>
+				<div class="info">
+					<div class="info1">
+						<em>RE CATCH</em>
+						<h3>분양캐치</h3>
+					</div>
+					<b class="info2">분양 판매/구인의 모든 것</b>
+					<p class="info3">분양정보를 쉽게 얻을 수 있는 새로운 플랫폼<br>
+						현장과 분양전문가를 매칭<br>
+						전국의 분양 전문가들을 통해 신뢰할 수 있는 정보를 알려드립니다.</p>
+					<a class="info4" href="#">바로가기</a>
+				</div>
+				
 			</section>
 
 			<section class="product p3 ui-parallax-wrap" data-act="product3">
-				<div class="info">
-					<em>legwork zero</em>
-					<h3>발품제로</h3>
-					<b>부동산 서비스를 하나로!</b>
-					<p>다양한 플랫폼에 흩어져 있는 매물정보를 하나로! <br>더이상 발품팔지 않고, 한곳에서 다 확인하자!</p>
-					<a href="#">바로가기</a>
-				</div>
 				<div class="img">
 					<div class="wrap">
 						<div class="card"></div>
 						<img src="../resources/img/prd3.png" alt="">
 					</div>
 				</div>
+				<div class="info">
+					<div class="info1">
+						<em>legwork zero</em>
+						<h3>발품제로</h3>
+					</div>
+					
+					<b class="info2">부동산 서비스를 하나로!</b>
+					<p class="info3">다양한 플랫폼에 흩어져 있는 매물정보를 하나로! <br>더이상 발품팔지 않고, 한곳에서 다 확인하자!</p>
+					<a class="info4" href="#">바로가기</a>
+				</div>
+				
 			</section>
 
 			<section class="contact ui-scrollmove-item" data-name="page_con">
@@ -288,7 +300,12 @@
 				let _c = 50;
 				b.style.top = Math.floor(_b - (n * 1.8)) + '%';
 				c.style.top = Math.floor(_c - (n / 1.2)) + '%';
-			
+				if(n >= 100) {
+					a.style.animationPlayState = 'paused';
+
+				} else {
+					a.style.animationPlayState = 'running';
+				}
 			}
 			let timer;
 			uiNXC.callback.new = (v) => {
@@ -308,22 +325,22 @@
 			}
 
 			uiNXC.callback.product1 = (v) => {
-				let n = 70;
+				let n = 80;
 				uiNXC.state.device.mobile ? n = 30 : '';
 
-				(Number(v.start) > n) ? v.el.classList.add('act') : "";
+				(Number(v.start) > n) ? v.el.classList.add('act') : '';
 			}
 			uiNXC.callback.product2 = (v) => {
 				let n = 70;
 				uiNXC.state.device.mobile ? n = 30 : '';
 
-				(Number(v.start) > n) ? v.el.classList.add('act') : "";
+				(Number(v.start) > n) ? v.el.classList.add('act') : '';
 			}
 			uiNXC.callback.product3 = (v) => {
 				let n = 70;
 				uiNXC.state.device.mobile ? n = 30 : '';
 
-				(Number(v.start) > n) ? v.el.classList.add('act') : "";
+				(Number(v.start) > n) ? v.el.classList.add('act') : '';
 			}
 
 			const cards = document.querySelectorAll('.card-list > li');

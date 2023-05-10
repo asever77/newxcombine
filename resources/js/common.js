@@ -221,7 +221,7 @@ Global.scroll = {
 			top = top - (el_item.offsetHeight / 2);
 			left = left - (el_item.offsetWidth / 2);
 		}
-
+console.log(top,align)
 		Global.scroll.move({
 			top: top,
 			left: left,
