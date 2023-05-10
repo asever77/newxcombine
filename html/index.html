@@ -321,12 +321,16 @@
 				(Number(v.start) > n) ? v.el.classList.add('act') : v.el.classList.remove('act');
 
 				let m = 100;
-				const card = v.el.querySelector('.card-list li:first-child')
-				uiNXC.state.device.mobile ? m = 50 : '';
-				clearTimeout(timer);
-				timer = setTimeout(() => {
-					(Number(v.start) >= m) ? card.classList.add('hover') : card.classList.remove('hover');
-				},800)
+				const cardhover = v.el.querySelector('.card-list li.hover')
+				if (!cardhover) {
+					const card = v.el.querySelector('.card-list li:first-child');
+					uiNXC.state.device.mobile ? m = 50 : '';
+					clearTimeout(timer);
+					timer = setTimeout(() => {
+						(Number(v.start) >= m) ? card.classList.add('hover') : card.classList.remove('hover');
+					},800);
+				}
+				
 				
 			}
 
@@ -351,6 +355,7 @@
 
 			const cards = document.querySelectorAll('.card-list > li');
 			const cardAct = (event) => {
+				clearTimeout(timer);
 				const _this = event.currentTarget;
 				const wrap = _this.closest('.card-list');
 				const cardHover = document.querySelector('.card-list > li.hover');
