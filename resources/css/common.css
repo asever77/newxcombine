@@ -168,7 +168,9 @@ summary {
 }
 
 /* Set core body defaults */
+html{overflow-y: overlay;}
 body {
+    overflow-y: overlay;
     overflow-x: hidden;
     font-family: 'Noto', sans-serif;
     background-color: #041727;
@@ -333,9 +335,9 @@ legend,
 .base-wrap {
     width: 100%;
 }
-
-
-
+.base-header nav,
+.base-header button,
+.base-header h1{z-index: 1;}
 .base-header {
     position: absolute;
     top: 0;
@@ -344,7 +346,44 @@ legend,
     z-index: 1;
     padding: 1.8vw 0 2vw;
     display: flex;
+    
 }
+.base-header::after{content: "";
+display: block; width: 100%; height: 100%; position: fixed; top:0; left:0; z-index: 0; background-color: #39b9a8; opacity: 0;
+transition: all .2s ease-in; pointer-events: none;
+}
+
+.btn-menu{position: fixed; top:2.2rem; right:4rem; width: 5rem; height: 5rem; display: flex; gap:.8rem; flex-direction: column; justify-content: center; }
+.btn-menu span{position:absolute; top:50%; left:50%; display: flex; justify-content: space-between; width: 100%;height: .8rem; transform:translate(-50%, -50%) rotate(0); transform-origin: 50% 50%; margin-top:-.8rem; transition: transform .2s ease-in;}
+.btn-menu span + span{margin-top:.8rem}
+.btn-menu span::before,
+.btn-menu span::after{
+    content: "";
+    display: block;
+    width:2rem;
+    height: .8rem;
+    border-radius: .2rem;
+    background-color: #fff;
+}
+
+.view {overflow: hidden; } 
+.view .base-header{position: fixed;}
+.view .base-header{height: 100vh;;}
+.view .base-header::after{opacity: 1;}
+.view .btn-menu {align-items: center;}
+.view .btn-menu span{transform:translate(-50%, -50%)  rotate(45deg); margin-top:0 ;}
+.view .btn-menu span + span{transform:translate(-50%, -50%) rotate(-45deg); }
+.view .base-header nav{flex-direction: column; justify-content: center; align-items: center; gap: 5vmax;}
+.view .base-header nav button{font-size: 8rem; color: #39b9a8; text-shadow: -0.1rem -0.1rem 0 #fff, 0.1rem -0.1rem 0 #fff, -0.1rem 0.1rem 0 #fff, 0.1rem 0.1rem 0 #fff; position: relative;}
+.view .base-header nav button::after{content:""; display: block; position: absolute; width:2vw; border-bottom:.1rem solid #fff; bottom:0; left:50%; transform: translate(-50%, 0); transition: width .2s ease-in;}
+
+.view .base-header nav button:hover{color:#fff; text-shadow: none;}
+.view .base-header nav button:hover::after{width: 100%;}
+
+.view .base-header nav button:active{color:#fff; text-shadow: none;}
+.view .base-header nav button:active::after{width: 100%;}
+
+
 
 .base-main {
     position: relative;
@@ -357,8 +396,8 @@ legend,
 .base-main > section{height: 100vh;}
 
 .base-header h1 {
-    position: fixed;
-    top: 1.8vw;
+    position: absolute;
+    top: 1.4vw;
     left: 6vw;
     display: flex;
     align-items: center;
@@ -1212,7 +1251,7 @@ legend,
 
 .product .info a {
     font-size: 1.8vmin;
-    padding: 1vmin 2vmin 1vmin 2vmin;
+    padding: 1.3vmin 2vmin 0.8vmin 2vmin;
     border: .1rem solid rgba(255, 255, 255, 0.3);
     color: #fff;
     text-decoration: none;
@@ -1222,14 +1261,14 @@ legend,
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.4rem
+    gap: 1.4rem;
 }
 
 .product .info a::after {
     content: "";
     display: block;
-    width: .8vmin;
-    height: .8vmin;
+    width: .8vmax;
+    height: .8vmax;
     border: .1rem solid #999;
     border-top: 0;
     border-left: 0;
@@ -1684,8 +1723,12 @@ input:focus {
 }
 @media (max-width: 900px) {
 
-    .base-header h1 {left:2.4rem}
+    .base-header h1 {left:2.4rem;top:2rem}
     .base-header h1 img {width: auto;height:1.6rem}
+    .btn-menu{transform: scale(.5); right: .6rem; top:.6rem;}
+    .view .base-header nav{display: flex;}
+    .view .base-header nav button{font-size: 6vw;}
+
 
     .vane {
         width: 200vw;

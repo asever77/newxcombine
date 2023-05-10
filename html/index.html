@@ -20,13 +20,19 @@
 	<div class="base-wrap">
 		<header class="base-header">
 			<h1>
-				<button type="button" class="ui-scrollmove-btn" data-area="page" data-name="page_intro"><img src="../resources/img/logo.png" alt="new x combine"></button>
+				<button type="button" class="ui-scrollmove-btn" data-area="page" data-name="page_intro">
+					<img src="../resources/img/logo.png" alt="new x combine">
+				</button>
 			</h1>
 			<nav>
 				<button type="button" class="ui-scrollmove-btn" data-area="page" data-name="page_new">new x combine</button>
 				<button type="button" class="ui-scrollmove-btn" data-area="page" data-name="page_ser">service</button>
 				<button type="button" class="ui-scrollmove-btn" data-area="page" data-name="page_con">contact</button>
 			</nav>
+			<button type="button" class="btn-menu">
+				<span></span>
+				<span></span>
+			</button>
 		</header>
 
 		<main class="base-main ui-parallax">
@@ -364,7 +370,26 @@
 				
 			}
 
+			const btnMenu = document.querySelector('.btn-menu');
+			const menu = (e) => {
+				document.querySelector('html').classList.toggle('view');
+				document.querySelector('html').classList.contains('view') ? 
+				document.querySelector('.base-header h1 img').src = "../resources/img/logo_w.png" : 
+				document.querySelector('.base-header h1 img').src = "../resources/img/logo.png";
+			}
+			btnMenu.addEventListener('click', menu);
 
+			const navBtns = document.querySelectorAll('nav button');
+			const menuclose = (e) => {
+				document.querySelector('html').classList.remove('view');
+				document.querySelector('.base-header h1 img').src = "../resources/img/logo.png";
+			}
+
+			for (let btn of navBtns) {
+				btn.addEventListener('click', menuclose);
+			}
+			
+			document.addEventListener("touchstart", function() {}, true);
 		});
 	</script>
 </body>
