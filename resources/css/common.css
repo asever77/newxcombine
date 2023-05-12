@@ -335,6 +335,34 @@ legend,
 .base-wrap {
     width: 100%;
 }
+.no-first .btn-top{opacity: 1;}
+.no-first .btn-next{opacity: 0;}
+.btn-next{
+    position: fixed; bottom:6rem; left:50%; transform: translate(-50%,0); z-index: 10; width:6rem; height:6rem; display: flex; justify-content: center; align-items: center; color:#fff;  display: flex; flex-direction: column; justify-content: center; align-items: center;
+    transition: opacity .2s ease;opacity: 1;
+    
+}
+.btn-top  .material-symbols-rounded{display:block; font-size: 6rem;}
+.btn-next .material-symbols-rounded{display:block; font-size: 6rem;}
+.btn-top{position: fixed; bottom:4rem; right:4rem; z-index: 10; width:6rem; height:6rem; display: flex; justify-content: center; align-items: center; color:#fff; transition: opacity .2s ease;opacity: 0;
+}
+.btn-next .move{
+    position: absolute;
+    bottom:-4rem; left:50%;
+    animation-name: move;
+    animation-duration: .8s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+}
+.btn-next .move + .move{
+    animation-delay: .4s;
+    bottom:-4.8rem;
+}
+@keyframes move {
+    0% {transform: translate(-50%,0); opacity: 1;}
+    100% {transform: translate(-50%,1.6rem); opacity: 0;}
+}
+
 .base-header nav,
 .base-header button,
 .base-header h1{z-index: 1;}
