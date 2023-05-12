@@ -8,7 +8,7 @@
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="description" content="뉴엑스컴바인">
 	<meta name="keywords" content="웹3.0, 메타버스(VR/AR), 빅데이터, AI머신러닝, 퀀트기술, 건설분양판매홍보, 분양비즈니즈플랫폼, 부동산데이터통합서비스, 크립토퀀트투자분야">
-
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 	<link rel="stylesheet" href="../resources/css/common.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -122,6 +122,17 @@
 						<p>기존것과 새로운것의 결합</p>
 					</div>
 				</div>
+				<button type="button" class="btn-next ui-scrollmove-btn" data-area="page" data-name="page_new">
+					<span class="material-symbols-rounded">
+						mouse
+					</span>
+					<span class="material-symbols-rounded move">
+						keyboard_arrow_down
+					</span>
+					<span class="material-symbols-rounded move">
+						keyboard_arrow_down
+					</span>
+				</button>
 			</section>
 
 			<section class="service ui-parallax-wrap ui-scrollmove-item" data-act="new" data-name="page_new">
@@ -191,7 +202,7 @@
 					
 					<b class="info2">디지털로 짓다 팔다</b>
 					<p class="info3">홈페이지부터 모델하우스 뉴미디어까지, Visual, Data, UX, Platform을 활용한 토탈 분양솔루션을 제안합니다.</p>
-					<a class="info4" href="#">바로가기</a>
+					<a class="info4" href="http://www.분홍고래.kr" target="_blank">바로가기</a>
 				</div>
 				
 			</section>
@@ -212,7 +223,7 @@
 					<p class="info3">분양정보를 쉽게 얻을 수 있는 새로운 플랫폼<br>
 						현장과 분양전문가를 매칭<br>
 						전국의 분양 전문가들을 통해 신뢰할 수 있는 정보를 알려드립니다.</p>
-					<a class="info4" href="#">바로가기</a>
+					<a class="info4" href="#">2023.4H 출시 예정</a>
 				</div>
 				
 			</section>
@@ -232,7 +243,7 @@
 					
 					<b class="info2">부동산 서비스를 하나로!</b>
 					<p class="info3">다양한 플랫폼에 흩어져 있는 매물정보를 하나로! <br>더이상 발품팔지 않고, 한곳에서 다 확인하자!</p>
-					<a class="info4" href="#">바로가기</a>
+					<a class="info4" href="#">2023.3H 출시 예정</a>
 				</div>
 				
 			</section>
@@ -282,11 +293,16 @@
 			<img src="../resources/img/logo.png" alt="">
 			<address>
 				<p>(주) 뉴엑스컴바인 | 대표 : 김진혁 </p>
-				<p>주소 : 서울 금천구 가산디지털2로 173, 509호 | 사업자 등록번호 : 000-00-00000 | 이메일: 000@newxcombinea.com</p>
+				<p>주소 : 서울 금천구 가산디지털2로 173, 509호 | 사업자등록 번호 203-39-61284 | 이메일 :  jhkim@newxcombine.com</p>
 				<p class="ft-evm">Copyright © New X Combine All Rights Reserved</p>
 
 			</address>
 		</footer>
+		<button type="button" class="btn-top ui-scrollmove-btn" data-area="page" data-name="page_intro">
+			<span class="material-symbols-rounded">
+				arrow_upward
+			</span>
+		</button>
 
 	</div>
 
@@ -311,6 +327,12 @@
 
 				} else {
 					a.style.animationPlayState = 'running';
+				}
+
+				if (n > 0) {
+					document.querySelector('body').classList.add('no-first');
+				} else {
+					document.querySelector('body').classList.remove('no-first');
 				}
 			}
 			let timer;
