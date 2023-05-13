@@ -1935,6 +1935,16 @@ input:focus {
 }
 
 @media (max-width: 700px) {
+    .contact{height: 100% !important;}
+    .btn-next{
+        bottom:3rem; left:50%;width:3rem; height:3rem;
+    }
+    .btn-top  .material-symbols-rounded{font-size: 3rem;}
+    .btn-next .material-symbols-rounded{font-size: 3rem;}
+    .btn-top{bottom:2rem; right:2rem; width:3rem; height:3rem; }
+    .btn-next .move{bottom:-2rem;  }
+    .btn-next .move + .move{bottom:-2rem; }
+
     .service{padding: 0 0 10vmax; height:auto !important;}
     .service .tit p{font-size: 1.6rem;}
     .service .tit h2 {
