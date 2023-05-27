@@ -1600,7 +1600,7 @@ transition: all .2s ease-in; pointer-events: none;
 
 .people {
     width: 100%;
-    margin-top:20vw;
+    margin-top:15vw;
     height: 100%;
     position: relative;
     z-index: 1;
@@ -1608,6 +1608,7 @@ transition: all .2s ease-in; pointer-events: none;
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
+    padding-top: 5vw;
 }
 
 .people .tit {
