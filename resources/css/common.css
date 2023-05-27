@@ -1654,7 +1654,7 @@ transition: all .2s ease-in; pointer-events: none;
     transform-origin: 50% 50%; */
 }
 .people-box img{width: 100%;}
-.people-info{margin-top: 1rem;}
+.people-info{margin-top: 1.6rem;}
 .people-name{font-family: 'Evm';font-size: 1.6rem;}
 .people-div{font-size: 1.8rem; color: #39b8a7; font-weight: 600; margin: .8rem 0 .4rem;}
 .people-hash{font-size: 1.4rem; color: #c8c8c8;}
@@ -2020,7 +2020,9 @@ input:focus {
     .product.p2.act .info {
         left: 10%;
     }
-
+    .people .tit h2 span {
+        margin:0 2rem 0 0;
+    }
     .people-group{
         display: flex;
         flex-wrap: wrap;
@@ -2037,6 +2039,7 @@ input:focus {
         margin-top: -10vw;
     }
     .people {height: 100% !important;}
+    .people-name {font-size:1.4rem}
 }
 
 @media (max-width: 700px) {
